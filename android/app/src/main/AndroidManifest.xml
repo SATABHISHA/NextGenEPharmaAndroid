@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.arb.Nextgen.ePharma">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION"/>
+    <application
+        android:name="org.arb.Nextgen.ePharma.config.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/epharma"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/epharma"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Login.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.arb.Nextgen.ePharma.Home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".DCR.DcrHome"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".DCR.DcrDetails"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".TrackingDetails.TrackingDetailsActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".DCR.DcrSelectDoctor"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".DCR.DcrSelectChemist"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".DCR.DcrSelectStockist"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".DCR.DcrSummary"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Document.DocumentListActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MWR.MWRHome"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MWR.MWRWeekDate"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MWR.MWRmsr1"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MWR.MWRmsr2"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MWR.MWRDetails"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".MWR.MWROtherDetails"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.Circular.CircularHomeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.Circular.CircularDetailsActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.Email.EmailHomeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.Email.EmailDetailsActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrDetailsRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrTypeRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrSelectDoctorRemake"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrViewDoctorRemake"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrWorkedWithRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrSelectChemistRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrSelectStockistRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrViewChemistRemake"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrViewStockistRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrSelectBaseWorkPlaceRemakeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
+        <receiver
+            android:name="org.arb.ePharmaMobileAppCaplet.org.arb.Nextgen.ePharmaMobileAppCaplet.config.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.arb.ePharmaMobileAppCaplet.org.arb.Nextgen.ePharmaMobileAppCaplet.config.RSSPullService"
+            android:exported="false"
+            android:launchMode="singleTop"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDBBrGH0BAaZQzcRT94DSWpDgUYuc_KTgg" />
+    </application>
+
+</manifest>

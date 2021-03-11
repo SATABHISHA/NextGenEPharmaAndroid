@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/cordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#4DC7A1"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#47BE90"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+             <TextView
+                 android:id="@+id/tv_circular_caption"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textSize="22sp"
+                 android:text="Circulars"
+                 android:gravity="center"
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:textColor="#ffffff"
+                 />
+             <RelativeLayout
+                 android:id="@+id/rl_back_arrow"
+                 android:layout_width="120dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginLeft="0dp"
+                 android:layout_alignParentLeft="true"
+                 android:layout_centerVertical="true">
+                 <ImageButton
+                     android:id="@+id/imgbtn_arrrow"
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:background="@drawable/arrowback"/>
+             </RelativeLayout>
+         </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <!--android:background="?attr/colorPrimary" -->
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:id="@+id/arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/menu_arrow"/>
+
+            <TextView
+                android:id="@+id/tv_unread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_gravity="center_vertical"
+                android:text="Unread" />
+        </LinearLayout>
+        <ListView
+            android:id="@+id/list_circular"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/status"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/light_gray_border"
+            android:padding="2dp"/>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

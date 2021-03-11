@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/cordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2e5772"
+            android:theme="@style/AppBaseTheme">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#2e5772"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+            <!-- android:background="?attr/colorPrimary"-->
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f4f1f1"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:id="@+id/content_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#f4f1f1"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dip"
+                    android:layout_weight="10"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="5dip"
+                        android:layout_weight=".33"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dip"
+                            android:layout_weight=".5"
+                            android:background="#ffffff">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/homeborder"
+                                >
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:weightSum="1.5">
+
+
+                                    <ImageView
+                                        android:id="@+id/img_timesheet"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".3"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center_horizontal"
+                                        android:src="@drawable/holiday_list" />
+                                    <TextView
+                                        android:id="@+id/tv_timesheet_comingsoon"
+                                        android:layout_below="@id/img_timesheet"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:gravity="center_horizontal"
+                                        android:text="Coming Soon"
+                                        android:textStyle="bold"
+                                        android:visibility="invisible"
+                                        android:textSize="10dp"
+                                        android:textColor="#de5353"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:layout_alignParentBottom="true"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:background="@drawable/homebordertitle"
+                                        android:text="Timesheet"
+                                        android:textAllCaps="false"
+                                        android:textColor="#447397"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+                                <Button
+                                    android:id="@+id/activity_main_btn_timesheet_entry"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:background="@android:color/transparent" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dip"
+                            android:layout_weight=".5"
+                            android:background="@drawable/icon_background">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/homeborder">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:weightSum="1.5">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".37"
+                                        android:layout_marginTop="25dp"
+                                        android:layout_centerHorizontal="true"
+                                        android:gravity="center_horizontal"
+                                        android:src="@drawable/pending_item_new" />
+                                    <TextView
+                                        android:id="@+id/tv_pendingitems_comingsoon"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:layout_gravity="center_vertical|center_horizontal"
+                                        android:layout_marginTop="15dp"
+                                        android:layout_weight=".53"
+                                        android:text="Coming Soon"
+                                        android:textStyle="bold"
+                                        android:visibility="invisible"
+                                        android:textSize="10dp"
+                                        android:textColor="#de5353"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:layout_alignParentBottom="true"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:background="@drawable/homebordertitle"
+                                        android:text="Pending Items"
+                                        android:textAllCaps="false"
+                                        android:textColor="#447397"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                                <Button
+                                    android:id="@+id/activity_main_btn_pending_items"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:background="@android:color/transparent" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginBottom="5dip"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight=".33"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <!--<Button
+                            android:id="@+id/activity_home_btn_pickup"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:text="PICKUP\nORDER"
+                            android:textAllCaps="false"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#444444"
+                            android:layout_weight=".5"
+                            android:layout_marginRight="10dip"
+                            android:background="#ED2437"
+                            />-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dip"
+                            android:layout_weight=".5"
+                            android:background="@drawable/icon_background">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/homeborder">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:orientation="vertical"
+                                    android:weightSum="1.5">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_weight=".3"
+                                        android:gravity="center_horizontal"
+                                        android:src="@drawable/announcement_new" />
+                                    <TextView
+                                        android:id="@+id/tv_announcements_comingsoon"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:text="Coming Soon"
+                                        android:textStyle="bold"
+                                        android:visibility="invisible"
+                                        android:textSize="10dp"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:layout_marginBottom="10dp"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:text="Announcements"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:textAllCaps="false"
+                                        android:textColor="#447397"
+                                        android:background="@drawable/homebordertitle"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/activity_main_btn_announcements"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@android:color/transparent" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                        <!--  <Button
+                              android:id="@+id/activity_home_btn_delivery"
+                              android:layout_width="fill_parent"
+                              android:layout_height="fill_parent"
+                              android:layout_marginLeft="10dip"
+                              android:layout_weight=".5"
+                              android:background="#ED2437"
+                              android:text="DELIVERY\nORDER"
+                              android:textAllCaps="false"
+                              android:textColor="#444444"
+                              android:textSize="20sp"
+                              android:textStyle="bold" />-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dip"
+                            android:layout_weight=".5"
+                            android:background="#ffffff">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/homeborder">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:orientation="vertical"
+                                    android:weightSum="1.5">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_weight=".3"
+
+                                        android:gravity="center_horizontal"
+                                        android:src="@drawable/upcoming_events_new" />
+                                    <TextView
+                                        android:id="@+id/tv_upcomingevents_comingsoon"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:text="Coming Soon"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:textStyle="bold"
+                                        android:visibility="invisible"
+                                        android:textSize="10dp"
+                                        android:textColor="#eaa606"
+                                        android:layout_marginBottom="10dp"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:text="Upcoming Events"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:textAllCaps="false"
+                                        android:textColor="#447397"
+                                        android:background="@drawable/homebordertitle"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/activity_main_btn_upcoming_events"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:background="@android:color/transparent" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight=".33"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <!--  <Button
+                              android:id="@+id/activity_home_btn_redeem_code"
+                              android:layout_width="fill_parent"
+                              android:layout_height="fill_parent"
+                              android:layout_marginRight="10dip"
+                              android:layout_weight=".5"
+                              android:background="#ED2437"
+                              android:text="REDEEM\nCODE"
+                              android:textAllCaps="false"
+                              android:textColor="#444444"
+                              android:textSize="20sp"
+                              android:textStyle="bold" />-->
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dip"
+                            android:layout_marginBottom="17dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/icon_background">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/homeborder">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:orientation="vertical"
+                                    android:weightSum="1.5">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".4"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_gravity="center"
+                                        android:gravity="center_horizontal"
+                                        android:src="@drawable/leavebalancehomepage" />
+                                    <TextView
+                                        android:id="@+id/tv_holidaylist_comingsoon"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".5"
+                                        android:text="Coming Soon"
+                                        android:textStyle="bold"
+                                        android:layout_gravity="center_vertical|center_horizontal"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:visibility="invisible"
+                                        android:textSize="10dp"
+                                        android:textColor="#de5353"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:layout_gravity="center_vertical|center_horizontal"
+                                        android:text="Leave Balance"
+
+                                        android:textAllCaps="false"
+                                        android:textColor="#447397"
+                                        android:background="@drawable/homebordertitle"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/activity_main_btn_leave_balance"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@android:color/transparent"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentStart="true" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                        <!-- <Button
+                             android:id="@+id/activity_home_btn_refer_friend"
+                             android:layout_width="fill_parent"
+                             android:layout_height="fill_parent"
+                             android:layout_marginLeft="10dip"
+                             android:layout_weight=".5"
+                             android:background="#ED2437"
+                             android:text="REFER\nFRIEND"
+                             android:textAllCaps="false"
+                             android:textColor="#444444"
+                             android:textSize="20sp"
+                             android:textStyle="bold" />-->
+
+                        <LinearLayout
+                            android:visibility="invisible"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dip"
+                            android:layout_weight=".5"
+                            android:layout_marginBottom="17dp"
+                            android:background="@drawable/icon_background">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/homeborder">
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:orientation="vertical"
+                                    android:weightSum="1.5">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_weight=".4"
+
+                                        android:gravity="center_horizontal"
+                                        android:src="@drawable/vacation_new" />
+                                    <TextView
+                                        android:id="@+id/tv_vacationrequest_comingsoon"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_horizontal|center_vertical"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:layout_weight=".5"
+                                        android:text="Coming Soon"
+                                        android:textStyle="bold"
+                                        android:visibility="invisible"
+                                        android:textSize="10dp"
+                                        android:textColor="#de5353"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight=".6"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:text="Vacation Request"
+                                        android:layout_gravity="center_vertical|center_horizontal"
+                                        android:textAllCaps="false"
+                                        android:textColor="#447397"
+                                        android:background="@drawable/homebordertitle"
+                                        android:textSize="14sp"
+                                        android:textStyle="bold"/>
+
+                                </LinearLayout>
+
+                                <Button
+                                    android:id="@+id/activity_main_btn_vacation_request"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:background="@android:color/transparent"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentStart="true" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+        <!--  <android.support.design.widget.FloatingActionButton
+              android:id="@+id/fab"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="bottom|end"
+              android:layout_margin="@dimen/fab_margin"
+              app:srcCompat="@android:drawable/ic_dialog_email" /> -->
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="#D1D0D0"
+        app:headerLayout="@layout/nav_header_home"
+        app:menu="@menu/activity_home_drawer" />
+</androidx.drawerlayout.widget.DrawerLayout>

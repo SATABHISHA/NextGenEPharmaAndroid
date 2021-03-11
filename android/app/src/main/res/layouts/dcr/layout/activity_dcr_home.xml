@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/cordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4DC7A1"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#4DC7A1"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:text="Select Period"
+                    android:layout_centerVertical="true"
+                    android:textColor="#ffffff"
+                    />
+                <ImageButton
+                    android:id="@+id/imgbtn_home"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/home_menu"/>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+            <!--android:background="?attr/colorPrimary" -->
+
+    </com.google.android.material.appbar.AppBarLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#eaeaea">
+
+                <RelativeLayout
+                    android:id="@+id/calendar_date_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="11">
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="39.5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/notstarted"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="Not Started"
+                                android:gravity="center|left"
+                                android:textColor="#000000"
+                                android:drawablePadding="10dp"
+                                android:drawableLeft="@drawable/dcr_not_started"/>
+                            <TextView
+                                android:id="@+id/holiday"
+                                android:layout_toRightOf="@id/notstarted"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="50dp"
+                                android:text="Holiday"
+                                android:gravity="center|left"
+                                android:textColor="#000000"
+                                android:drawablePadding="10dp"
+                                android:drawableLeft="@drawable/dcr_holiday"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/sent"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="Sent"
+                                android:gravity="center|left"
+                                android:textColor="#000000"
+                                android:drawablePadding="10dp"
+                                android:drawableLeft="@drawable/dcr_sent"/>
+                            <TextView
+                                android:id="@+id/sunday"
+                                android:layout_toRightOf="@id/sent"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="50dp"
+                                android:text="Sunday"
+                                android:gravity="center|left"
+                                android:textColor="#000000"
+                                android:drawablePadding="10dp"
+                                android:drawableLeft="@drawable/dcr_sunday"/>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_gravity="center">
+                            <TextView
+                                android:id="@+id/draft"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="Draft"
+                                android:gravity="center|left"
+                                android:textColor="#000000"
+                                android:drawablePadding="10dp"
+                                android:drawableLeft="@drawable/dcr_draft"/>
+                            <TextView
+                                android:id="@+id/dummy"
+                                android:layout_toRightOf="@id/draft"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="Not Started"
+                                android:gravity="center|left"
+                                android:textColor="#000000"
+                                android:visibility="invisible"
+                                android:drawablePadding="10dp"
+                                android:layout_marginLeft="50dp"
+                                android:drawableLeft="@drawable/dcr_sent"/>
+                        </RelativeLayout>
+
+
+                      <!--  <LinearLayout
+                            android:id="@+id/linearlayout_legends"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="26"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="24dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="37"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="33">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="Holiday"
+                                        android:gravity="center|left"
+                                        android:textColor="#000000"
+                                        android:drawablePadding="10dp"
+                                        android:drawableLeft="@drawable/dcr_holiday"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="33">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:text="Sent"
+                                        android:gravity="center|left"
+                                        android:textColor="#000000"
+                                        android:drawablePadding="10dp"
+                                        android:drawableLeft="@drawable/dcr_sent"/>
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+                        </LinearLayout> -->
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

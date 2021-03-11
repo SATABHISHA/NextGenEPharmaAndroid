@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="12dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff">
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_circular"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circularnew"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/tv_circular_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_circular"
+                android:layout_toLeftOf="@+id/img_next"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="17sp"
+                android:textColor="#616161"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Week Date"/>
+            <TextView
+                android:id="@+id/tv_publish_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_circular_name"
+                android:layout_toRightOf="@id/img_circular"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:textColor="#ACACAC"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="10-06-2018"/>
+            <ImageView
+                android:id="@+id/img_attachments"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/tv_circular_name"
+                android:layout_toRightOf="@id/tv_publish_date"
+                android:background="@drawable/attachments"/>
+
+           <!-- <TextView
+                android:id="@+id/tv_day_date_period"
+                android:layout_below="@id/tv_weekdate"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/img_circular"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textColor="#ACACAC"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="04-11-2019 To 09-11-2019"/> -->
+            <!--<RelativeLayout
+                android:id="@+id/rl_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_alignParentRight="true"> -->
+
+            <ImageView
+                android:id="@+id/img_next"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:visibility="visible"
+                android:layout_marginRight="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+            <!-- </RelativeLayout> -->
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

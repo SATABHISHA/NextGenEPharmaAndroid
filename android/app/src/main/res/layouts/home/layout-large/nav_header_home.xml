@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:gravity="center_vertical"
+    android:paddingLeft="0dp"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/product_logo"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/supervisor" />
+
+    </RelativeLayout>
+    <!-- <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingTop="@dimen/nav_header_vertical_spacing"
+         android:text="Android Studio"
+         android:textAppearance="@style/TextAppearance.AppCompat.Body1" /> -->
+
+    <TextView
+        android:id="@+id/text_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:textStyle="normal"
+        android:textColor="#34A5FE"
+        android:layout_gravity="center"
+        android:text="android.studio@android.com" />
+
+    <TextView
+        android:id="@+id/text_compname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="android.studio@android.com"
+        android:layout_gravity="center"
+        android:textColor="#34A5FE"
+        android:textSize="18dp"
+        android:textStyle="normal" />
+</LinearLayout>

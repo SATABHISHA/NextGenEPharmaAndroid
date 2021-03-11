@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.ganfra:material-spinner:2.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee756007bc2c845cb9dd1fe87f2c490e/jetified-material-spinner-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee756007bc2c845cb9dd1fe87f2c490e/jetified-material-spinner-2.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ce0c7a36aea40e0ae7c8d262da4ac74a/jetified-material-spinner-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ce0c7a36aea40e0ae7c8d262da4ac74a/jetified-material-spinner-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ce0c7a36aea40e0ae7c8d262da4ac74a/jetified-material-spinner-2.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a433a8e0ef630498475f8968801ada6f/jetified-material-spinner-2.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a433a8e0ef630498475f8968801ada6f/jetified-material-spinner-2.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a433a8e0ef630498475f8968801ada6f/jetified-material-spinner-2.0.0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e29565e805cc3aa326e8263713eb6d3f/jetified-material-spinner-2.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e29565e805cc3aa326e8263713eb6d3f/jetified-material-spinner-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e29565e805cc3aa326e8263713eb6d3f/jetified-material-spinner-2.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d824a4288810876a9d21c710ba4ced60/jetified-material-spinner-2.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d824a4288810876a9d21c710ba4ced60/jetified-material-spinner-2.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d824a4288810876a9d21c710ba4ced60/jetified-material-spinner-2.0.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ganfra/material-spinner/2.0.0/7fd84a5f3f392a09154bff7ed93249e751570ffc/material-spinner-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/cordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#4DC7A1"
+        android:theme="@style/AppTheme.AppBarOverlay">
+       <!-- <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="MWR"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                />
+        </RelativeLayout> -->
+          <androidx.appcompat.widget.Toolbar
+              android:id="@+id/toolbar"
+              android:layout_width="match_parent"
+              android:layout_height="?attr/actionBarSize"
+              android:background="#4DC7A1"
+              app:popupTheme="@style/AppTheme.PopupOverlay">
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="22sp"
+                      android:text="MWR"
+                      android:layout_centerVertical="true"
+                      android:layout_centerHorizontal="true"
+                      android:textColor="#ffffff"
+                      />
+                 <!-- <RelativeLayout
+                      android:id="@+id/rl_back_arrow"
+                      android:layout_width="120dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="0dp"
+                      android:layout_alignParentLeft="true"
+                      android:layout_centerVertical="true">
+                      <ImageButton
+                          android:id="@+id/imgbtn_arrrow"
+                          android:layout_width="30dp"
+                          android:layout_height="30dp"
+                          android:background="@drawable/arrowback"/>
+                  </RelativeLayout> -->
+                  <ImageButton
+                      android:id="@+id/imgbtn_home"
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:layout_marginRight="15dp"
+                      android:layout_alignParentRight="true"
+                      android:layout_centerVertical="true"
+                      android:background="@drawable/home_menu"/>
+              </RelativeLayout>
+          </androidx.appcompat.widget.Toolbar>
+
+        <!--android:background="?attr/colorPrimary" -->
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <ListView
+            android:id="@+id/list_mwr_date_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rl_area_legends"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="2dp"/>
+        <RelativeLayout
+            android:id="@+id/rl_area_legends"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ECECEC"
+            android:layout_alignParentBottom="true"
+            >
+        <RelativeLayout
+            android:id="@+id/rl_legends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            >
+            <TextView
+                android:id="@+id/saved"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Saved"
+                android:gravity="center|left"
+                android:textColor="#000000"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/dcr_draft"/>
+
+            <TextView
+                android:id="@+id/sent"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_toRightOf="@id/saved"
+                android:drawableLeft="@drawable/dcr_sent"
+                android:drawablePadding="10dp"
+                android:gravity="center|left"
+                android:text="Sent"
+                android:textColor="#000000" />
+
+        </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

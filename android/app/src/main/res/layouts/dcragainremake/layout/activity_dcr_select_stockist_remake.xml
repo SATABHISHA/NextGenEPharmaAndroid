@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/cordinatorLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#4DC7A1"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="Add Stockist"
+                android:layout_gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                />
+        </RelativeLayout>
+        <!-- <androidx.appcompat.widget.Toolbar
+             android:id="@+id/toolbar"
+             android:layout_width="match_parent"
+             android:layout_height="?attr/actionBarSize"
+             android:background="#4DC7A1"
+             app:popupTheme="@style/AppTheme.PopupOverlay">
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="22sp"
+                     android:text="DCR"
+                     android:gravity="center"
+                     android:layout_centerVertical="true"
+                     android:layout_centerHorizontal="true"
+                     android:textColor="#ffffff"
+                     />
+                 <RelativeLayout
+                     android:id="@+id/rl_back_arrow"
+                     android:layout_width="120dp"
+                     android:layout_height="wrap_content"
+                     android:layout_marginLeft="0dp"
+                     android:layout_alignParentLeft="true"
+                     android:layout_centerVertical="true">
+                     <ImageButton
+                         android:id="@+id/imgbtn_arrrow"
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:background="@drawable/arrowback"/>
+                 </RelativeLayout>
+             </RelativeLayout>
+         </androidx.appcompat.widget.Toolbar> -->
+
+        <!--android:background="?attr/colorPrimary" -->
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!--   <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_alignParentBottom="true"
+               android:layout_marginBottom="60dp"
+               android:orientation="vertical"> -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:weightSum="50"
+            android:layout_above="@id/ll_buttons">
+            <LinearLayout
+                android:id="@+id/ll_wrkplace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll1"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#848585"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="Select Work Place"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_worked_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#E0E0E0"
+                    android:layout_above="@id/btn_load_doctor"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginTop="0dp"
+                    android:scrollbars="vertical" />
+                <Button
+                    android:id="@+id/btn_load_stockist"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="-2dp"
+                    android:layout_centerInParent="true"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"
+                    android:background="#8DB3E2"
+                    android:textAllCaps="false"
+                    android:text="Load Stockist"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_wrkplace"
+                android:layout_weight="25"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll2"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#848585"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="Select Chemist"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <!--  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="25dp"
+                      android:layout_marginLeft="30dp"
+                      android:text="Select Doctor"
+                      android:textSize="18sp"/> -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_select_stockist"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#E0E0E0"
+                    android:layout_above="@id/ll_buttons"
+                    android:layout_marginBottom="15dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginTop="0dp"
+                    android:scrollbars="vertical" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--   </LinearLayout> -->
+        <LinearLayout
+            android:id="@+id/ll_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#4DC7A1"
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:textSize="17sp"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:text="Cancel"/>
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+            <!-- <Button
+                 android:id="@+id/btn_summary"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:background="#4DC7A1"
+                 android:textColor="#ffffff"
+                 android:layout_weight="1"
+                 android:text="Summary"/>
+             <LinearLayout
+                 android:layout_width="1dp"
+                 android:layout_height="match_parent"
+                 android:background="#ffffff"/> -->
+            <!--  <Button
+                  android:id="@+id/btn_skip"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="#4DC7A1"
+                  android:textColor="#ffffff"
+                  android:layout_weight="1"
+                  android:textAllCaps="false"
+                  android:text="Skip"/> -->
+            <!--  <LinearLayout
+                  android:layout_width="1dp"
+                  android:layout_height="match_parent"
+                  android:background="#ffffff"/> -->
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#4DC7A1"
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:textSize="17sp"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:text="Add"/>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
