@@ -34,7 +34,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f4bd7c8-670d-4fb4-9846-d45ce9df08fc" name="Default Changelist" comment="" />
+    <list default="true" id="8f4bd7c8-670d-4fb4-9846-d45ce9df08fc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/login/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/login/layout/activity_login.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +111,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="memory.settings.postsync.last.time.stamp" value="1615452520175" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
@@ -120,12 +123,8 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout-large" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.arb.ePharmaMobileApp.Document" />
@@ -133,8 +132,12 @@
       <recent name="org.arb.ePharmaMobileApp.Model" />
       <recent name="org.arb.ePharmaMobileApp.DCR" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout-large" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
   </component>
   <component name="RunManager">

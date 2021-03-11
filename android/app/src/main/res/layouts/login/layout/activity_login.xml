@@ -8,13 +8,14 @@
 
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
         <RelativeLayout
+            android:id="@+id/rl1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:layout_weight=".2">
 
             <ImageView
@@ -24,7 +25,7 @@
                 android:src="@drawable/product_logo"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="0dp"/>
-            <ImageView
+          <!--  <ImageView
                 android:id="@+id/img_wrkpln_logo1"
                 android:layout_below="@id/img_wrkpln"
                 android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
                 android:textColor="#8B8B8B"
                 android:layout_centerHorizontal="true"
                 android:text="Login"
-                android:textSize="20dp"/>
+                android:textSize="20dp"/> -->
         </RelativeLayout>
 
 
@@ -83,12 +84,58 @@
             </LinearLayout>
 
         </LinearLayout> -->
-
-
+<RelativeLayout
+    android:id="@+id/rl3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center">
         <LinearLayout
+            android:id="@+id/ll1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="85"
+                android:gravity="center"
+                android:background="#47BE90">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/org"
+                    android:scaleType="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="15">
+
+                <EditText
+                    android:id="@+id/activity_login_edt_corp_ID"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rouned_broder"
+                    android:paddingLeft="10dp"
+                    android:hint="Corporate ID"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_below="@id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/input_background"
@@ -97,11 +144,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="85"
+                android:gravity="center"
                 android:background="#47BE90">
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/username"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/usernamenew"
                     android:scaleType="center"/>
             </LinearLayout>
 
@@ -125,6 +173,8 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_below="@id/ll2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="25dp"
@@ -136,14 +186,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="85"
+                android:gravity="center"
                 android:background="#47BE90">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:scaleType="center"
-                    android:src="@drawable/password" />
+                    android:background="@drawable/passwordnew" />
             </LinearLayout>
 
             <LinearLayout
@@ -165,9 +216,11 @@
             </LinearLayout>
 
         </LinearLayout>
+</RelativeLayout>
 
         <Button
             android:id="@+id/activity_login_btn_login"
+            android:layout_below="@id/rl3"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="25dp"
@@ -230,7 +283,11 @@
             </LinearLayout>
 
         </LinearLayout>  -->
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_alignParentBottom="true">
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -246,11 +303,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Copyright \u00A9 2020 ARB Software India Pvt Ltd"
+            android:text="Copyright \u00A9 ARB Software India Pvt Ltd"
             android:textColor="#505050"
             android:textSize="13sp"
             android:gravity="center"
             android:layout_marginBottom="15dp"/>
     </LinearLayout>
+</RelativeLayout>
 
 </RelativeLayout>
