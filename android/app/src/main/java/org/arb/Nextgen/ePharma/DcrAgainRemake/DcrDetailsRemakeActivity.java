@@ -39,6 +39,7 @@ import org.arb.Nextgen.ePharma.Home.HomeActivity;
 import org.arb.Nextgen.ePharma.Model.UserSingletonModel;
 import org.arb.Nextgen.ePharma.R;
 import org.arb.Nextgen.ePharma.config.Config;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -55,7 +56,7 @@ public class DcrDetailsRemakeActivity extends AppCompatActivity implements View.
     SQLiteDatabase db;
 
     public Context context = this;
-    SQLiteDatabase db1;
+    SQLiteDatabase db1, db_masterdata_dctr_stckst_chmst;
     SqliteDb sqliteDb = new SqliteDb();
 
     UserSingletonModel userSingletonModel = UserSingletonModel.getInstance();
@@ -142,6 +143,8 @@ public class DcrDetailsRemakeActivity extends AppCompatActivity implements View.
         try {
             db = openOrCreateDatabase("DCRDEtails", MODE_PRIVATE, null);
             db.execSQL("CREATE TABLE IF NOT EXISTS dcrdetail(id integer PRIMARY KEY AUTOINCREMENT, dcrJsonData VARCHAR)");
+
+            db.execSQL("CREATE TABLE IF NOT EXISTS TB_CUSTOMER(id integer PRIMARY KEY AUTOINCREMENT, dctr_chemist_stockist_id VARCHAR, ecl_no VARCHAR, name VARCHAR, work_place_id VARCHAR, work_place_name VARCHAR, speciality VARCHAR, customer_class VARCHAR, geo_tagged_yn integer, latitude VARCHAR, longitude VARCHAR, location_address VARCHAR, type VARCHAR, synced_yn integer)"); //--added on 17th march as per requirement
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -155,6 +158,7 @@ public class DcrDetailsRemakeActivity extends AppCompatActivity implements View.
             e.printStackTrace();
         }
         //---------initializing sqlitedatabase to get count of dctr/stockist/chemist, code ends---
+
 
         //==========Recycler code initializing and setting layoutManager starts======
         recycler_view = findViewById(R.id.recycler_view);
@@ -364,7 +368,9 @@ public class DcrDetailsRemakeActivity extends AppCompatActivity implements View.
     //=============function for DCR Details from api and insert data into sqlite database, code starts...=============
     public void loadDcrData(){
 //        String url = Config.BaseUrlEpharma + "msr/dcr-master-data/" + userSingletonModel.getUser_id() + "/7" ;
-        String url = Config.BaseUrlEpharma + "msr/dcr-master-data/" + userSingletonModel.getUser_id() + "/" + userSingletonModel.getCalendar_id() ;
+        String url = Config.BaseUrlEpharma + "epharma/MSR/DCR-Master-Data/" + userSingletonModel.getCorp_id() +"/"+userSingletonModel.getUser_id() + "/" + userSingletonModel.getCalendar_id() ;
+
+        Log.d("dcrurl-=>",url);
         final ProgressDialog loading = ProgressDialog.show(DcrDetailsRemakeActivity.this, "Loading", "Please wait...", true, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new
                 Response.Listener<String>() {
@@ -399,11 +405,69 @@ public class DcrDetailsRemakeActivity extends AppCompatActivity implements View.
                 Toast.makeText(getApplicationContext(),"Error...",Toast.LENGTH_LONG).show();
                 Log.d("Test DCRData", "Data not inserted");
             }
+
+            JSONArray jsonArrayDoctor = jsonObject.getJSONArray("doctors");
+            for(int i=0; i<jsonArrayDoctor.length(); i++){
+                JSONObject jsonObject1 = jsonArrayDoctor.getJSONObject(i);
+                setContentValues_SaveData(jsonObject1,"doctors");
+            }
+
+            JSONArray jsonArrayChemist = jsonObject.getJSONArray("chemists");
+            for(int i=0; i<jsonArrayChemist.length(); i++){
+                JSONObject jsonObject1 = jsonArrayChemist.getJSONObject(i);
+                setContentValues_SaveData(jsonObject1,"chemists");
+            }
+
+            JSONArray jsonArrayStockist = jsonObject.getJSONArray("stockists");
+            for(int i=0; i<jsonArrayStockist.length(); i++){
+                JSONObject jsonObject1 = jsonArrayStockist.getJSONObject(i);
+                setContentValues_SaveData(jsonObject1,"stockists");
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
     //=============function for DCR Details from api and insert data into sqlite database, code ends...===============
+
+    //---function to save the data in sqlitedatabse as masterdata, code starts
+    public void setContentValues_SaveData(JSONObject jsonObject1, String type){
+        ContentValues contentValues = new ContentValues();
+        try {
+            contentValues.put("dctr_chemist_stockist_id",jsonObject1.getString("id"));
+            contentValues.put("ecl_no",jsonObject1.getString("ecl_no"));
+            contentValues.put("name",jsonObject1.getString("name"));
+            contentValues.put("work_place_id",jsonObject1.getString("work_place_id"));
+            contentValues.put("work_place_name",jsonObject1.getString("work_place_name"));
+            if(type.contentEquals("doctors")) {
+                contentValues.put("speciality", jsonObject1.getString("speciality"));
+                contentValues.put("customer_class",jsonObject1.getString("customer_class"));
+            }else{
+                contentValues.put("speciality", "NA");
+                contentValues.put("customer_class","NA");
+            }
+
+            contentValues.put("geo_tagged_yn",jsonObject1.getInt("geo_tagged_yn"));
+            contentValues.put("latitude",jsonObject1.getString("latitude"));
+            contentValues.put("longitude",jsonObject1.getString("longitude"));
+            contentValues.put("location_address",jsonObject1.getString("location_address"));
+            contentValues.put("type",type);
+//                contentValues.put("synced_yn",jsonObject1.getInt("synced_yn"));
+            contentValues.put("synced_yn",1);
+
+            if ((db.insert("TB_CUSTOMER", null, contentValues)) != -1) {
+//                Toast.makeText(getApplicationContext(), "Inserted...", Toast.LENGTH_LONG).show();
+                Log.d("dctr DCRDAta", "Data inserted");
+//                fetchDcrData(); //---calling function to load data from sqlite in spinner
+            } else {
+                Toast.makeText(getApplicationContext(),"Error...",Toast.LENGTH_LONG).show();
+                Log.d("Test DCRData", "Data not inserted");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+    //---function to save the data in sqlitedatabse as masterdata, code ends
 
 
 }

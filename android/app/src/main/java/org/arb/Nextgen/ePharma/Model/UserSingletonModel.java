@@ -2,7 +2,7 @@ package org.arb.Nextgen.ePharma.Model;
 
 public class UserSingletonModel {
     String UserID, UserName, CompID, CorpID, CompanyName, SupervisorId, UserRole, AdminYN, PayableClerkYN, SupervisorYN, PurchaseYN,
-            PayrollClerkYN, EmpName, UserType, EmailId, PwdSetterId, FinYearID, user_id_rss_pull_service;
+            PayrollClerkYN, EmpName, UserType, EmailId, PwdSetterId, FinYearID, user_id_rss_pull_service, corp_id;
     String abm_id, abm_name, designation_id, designation_name, designation_type, hq_id, hq_name, rbm_id, rbm_name, sm_id,
             sm_name, state, user_full_name, user_group_id, user_id, user_name, zbm_id, zbm_name, menu_list, selected_date_calendar, selected_date_calendar_forapi_format, base_work_place_id, base_work_place_name, selected_date_calendar_date_status,
             dcr_details_dcr_type_name, dcr_details_dcr_type_id, dcr_id_for_dcr_summary, dcr_no_for_dcr_summary, dcr_remarks_for_dcr_summary, dcr_id_cal_year_for_dcr_summary, dcr_entry_user_for_dcr_summary, calendar_id, calendar_year, calendar_start_date, calendar_end_date, approval_status, approval_status_name, check_draft_saved_last_yn = "",
@@ -264,6 +264,10 @@ public class UserSingletonModel {
         return remarks;
     }
 
+    public String getCorp_id() {
+        return corp_id;
+    }
+
     //---------------------Getter method ends-----------------
 
     //---------------------Setter method starts-----------
@@ -506,5 +510,8 @@ public class UserSingletonModel {
         this.remarks = remarks;
     }
 
+    public void setCorp_id(String corp_id) {
+        this.corp_id = corp_id;
+    }
     //--------------------Setter method ends----------
 }

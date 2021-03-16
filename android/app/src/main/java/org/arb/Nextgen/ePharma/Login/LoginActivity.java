@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         sharedPreferences = getApplication().getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         btnLogin = (Button) findViewById(R.id.activity_login_btn_login);
 //        btnForgotPassword = (TextView) findViewById(R.id.activity_login_btn_forgot_password); //commenting this line on 6th July as per client requirement
-//        edtCorpId = (EditText) findViewById(R.id.activity_login_edt_corp_ID);
+        edtCorpId = (EditText) findViewById(R.id.activity_login_edt_corp_ID);
         edtUsername = (EditText) findViewById(R.id.activity_login_edt_username);
         edtPassword = (EditText) findViewById(R.id.activity_login_edt_password);
 //        chkSignedIn = (CheckBox) findViewById(R.id.activity_login_chk); //commenting this line on 6th July as per client requirement
@@ -166,6 +166,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //=========to check sharedpref and autofill corpid, code starts, added on 12th june=============
         String user_id_epharma = sharedPreferences.getString("user_id","");
         if (user_id_epharma != ""){
+            userSingletonModel.setCorp_id(sharedPreferences.getString("corp_id",""));
             userSingletonModel.setAbm_id(sharedPreferences.getString("abm_id",""));
             userSingletonModel.setAbm_name(sharedPreferences.getString("abm_name",""));
             userSingletonModel.setDesignation_id(sharedPreferences.getString("designation_id",""));
@@ -226,6 +227,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //=========to check sharedpref and autofill corpid, code starts, added on 12th june=============
         String user_id_epharma = sharedPreferences.getString("user_id","");
         if (user_id_epharma != ""){
+            userSingletonModel.setCorp_id(sharedPreferences.getString("corp_id",""));
             userSingletonModel.setAbm_id(sharedPreferences.getString("abm_id",""));
             userSingletonModel.setAbm_name(sharedPreferences.getString("abm_name",""));
             userSingletonModel.setDesignation_id(sharedPreferences.getString("designation_id",""));
@@ -444,7 +446,7 @@ public void test(){
         //----code to get device_id and upload to api code ends(added on 17th June)......
 //        String url = "http://220.225.40.151:9029/api/login/?user_id="+edtUsername.getText().toString()+"&password="+edtPassword.getText().toString();
 //        String url = "http://220.225.40.151:9029/api/login/"+edtUsername.getText().toString()+"/"+edtPassword.getText().toString();
-        String url = Config.BaseUrlEpharma+"login/"+edtUsername.getText().toString()+"/"+edtPassword.getText().toString()+"/"+android_id;
+        String url = Config.BaseUrlEpharma+"/epharma/login/"+edtCorpId.getText().toString()+"/"+edtUsername.getText().toString()+"/"+edtPassword.getText().toString()+"/"+android_id;
         Log.d("urlLogin-=>",url);
         final ProgressDialog loading = ProgressDialog.show(LoginActivity.this, "Authenticating", "Please wait while logging", false, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -503,8 +505,12 @@ public void test(){
                 try {
                     jsonObject = new JSONObject(request);
                     JSONObject jsonObjectResponse = jsonObject.getJSONObject("response");
+
                     if (jsonObjectResponse.getString("status").contentEquals("true")) {
                         JSONObject jsonObject1 = jsonObject.getJSONObject("user");
+                        Log.d("Logintest-=>",jsonObject1.toString());
+
+                        userSingletonModel.setCorp_id(edtCorpId.getText().toString()); //--newly added on 16th march
                         userSingletonModel.setAbm_id(jsonObject1.getString("abm_id"));
                         userSingletonModel.setAbm_name(jsonObject1.getString("abm_name"));
                         userSingletonModel.setDesignation_id(jsonObject1.getString("designation_id"));
@@ -547,6 +553,8 @@ public void test(){
 //                        if (chkSignedIn.isChecked()) { //commenting this line on 6th July as per client requirement
                             sharedPreferences = getApplication().getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                            editor.putString("corp_id",userSingletonModel.getCorp_id());
                             editor.putString("abm_id", userSingletonModel.getAbm_id());
                             editor.putString("abm_name", userSingletonModel.getAbm_name());
                             editor.putString("designation_id", userSingletonModel.getDesignation_id());
