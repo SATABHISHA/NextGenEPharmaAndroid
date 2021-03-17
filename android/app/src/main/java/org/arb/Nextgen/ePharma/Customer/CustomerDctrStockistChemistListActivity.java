@@ -18,7 +18,7 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dctr_stckst_chemist_details);
+        setContentView(R.layout.activity_customer_dctr_stckst_chemist_details);
 
         ll_recycler = findViewById(R.id.ll_recycler);
         tv_bar_item_title = findViewById(R.id.tv_bar_item_title);
