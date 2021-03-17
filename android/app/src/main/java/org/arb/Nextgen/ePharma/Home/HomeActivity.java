@@ -52,6 +52,7 @@ import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.OnSuccessListener;
 
 import org.arb.Nextgen.ePharma.Circular.CircularHomeActivity;
+import org.arb.Nextgen.ePharma.Customer.CustomerHomeActivity;
 import org.arb.Nextgen.ePharma.Document.DocumentListActivity;
 import org.arb.Nextgen.ePharma.Email.EmailHomeActivity;
 import org.arb.Nextgen.ePharma.Login.LoginActivity;
@@ -74,7 +75,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     UserSingletonModel userSingletonModel = UserSingletonModel.getInstance();
     CoordinatorLayout coordinatorLayout;
     LocationManager locationManager;
-    RelativeLayout rlDcr, rlMwr, rlDcrSub, rlMwrSub, rlDcrAll, rlMwrAll, rlDocuments, rlCircular, rlEmails, rlTracking, rl_circulars, rl_circulars1;
+    RelativeLayout rlDcr, rlMwr, rlDcrSub, rlMwrSub, rlDcrAll, rlMwrAll, rlDocuments, rlCircular, rlEmails, rlTracking, rl_circulars, rl_circulars1, rlCustomers;
     public static int cancelStatus = 0;
     public static String circular_count = "0";
     NavigationView navigationView;
@@ -110,6 +111,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         tvCircular = findViewById(R.id.tvCircular);
         rl_circulars = findViewById(R.id.rl_circulars);
         rl_circulars1 = findViewById(R.id.rl_circulars1);
+        rlCustomers = findViewById(R.id.rlCustomers);
 
         rlDcr.setOnClickListener(this);
         rlMwr.setOnClickListener(this);
@@ -121,6 +123,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         rlCircular.setOnClickListener(this);
         rlEmails.setOnClickListener(this);
         rlTracking.setOnClickListener(this);
+        rlCustomers.setOnClickListener(this);
 
 
         //============Navigation drawer and toolbar code starts=============
@@ -857,6 +860,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 View v8 = findViewById(R.id.cordinatorLayout);
                 new Snackbar(message8,v8,Color.parseColor("#ff0000"));*/
                 break;
+            case R.id.rlCustomers:
+                Intent intent_customers = new Intent(HomeActivity.this, CustomerHomeActivity.class);
+                intent_customers.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent_customers);
+                break;
+
             default:
                 break;
         }

@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="17dp"
+                android:visibility="visible"
                 android:textSize="17sp"
                 android:textColor="#a7a7a7"
                 android:clickable="false"
@@ -100,6 +101,7 @@
                 android:layout_below="@id/tv_work_place"
                 android:layout_marginLeft="17dp"
                 android:paddingBottom="7dp"
+                android:visibility="visible"
                 android:textSize="13sp"
                 android:textColor="#9C27B0"
                 android:clickable="false"
@@ -161,7 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/tagpin"/>
+                    android:src="@drawable/tagpin"/>
                 <LinearLayout
                     android:id="@+id/ll_border1"
                     android:layout_width="match_parent"
@@ -175,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/product"/>
+                    android:src="@drawable/product"/>
             </LinearLayout>
             <!-- </RelativeLayout> -->
         </RelativeLayout>
