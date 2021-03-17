@@ -145,6 +145,9 @@ public class DcrDetailsRemakeActivity extends AppCompatActivity implements View.
             db.execSQL("CREATE TABLE IF NOT EXISTS dcrdetail(id integer PRIMARY KEY AUTOINCREMENT, dcrJsonData VARCHAR)");
 
             db.execSQL("CREATE TABLE IF NOT EXISTS TB_CUSTOMER(id integer PRIMARY KEY AUTOINCREMENT, dctr_chemist_stockist_id VARCHAR, ecl_no VARCHAR, name VARCHAR, work_place_id VARCHAR, work_place_name VARCHAR, speciality VARCHAR, customer_class VARCHAR, geo_tagged_yn integer, latitude VARCHAR, longitude VARCHAR, location_address VARCHAR, type VARCHAR, synced_yn integer)"); //--added on 17th march as per requirement
+            if(sqliteDb.countMasterData(db) > 0){
+                sqliteDb.deleteMasterData(db);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

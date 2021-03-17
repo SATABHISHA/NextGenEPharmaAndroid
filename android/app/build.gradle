@@ -19,7 +19,7 @@ android {
     }
     sourceSets {
         main {
-            res.srcDirs = ['src/main/res', 'src/main/res/layouts/login', 'src/main/res/layouts/home', 'src/main/res/layouts/dcr', 'src/main/res/layouts/trackingdetails', 'src/main/res/layouts/document', 'src/main/res/layouts/mwr', 'src/main/res/layouts/circular', 'src/main/res/layouts/email', 'src/main/res/layouts/dcragainremake']
+            res.srcDirs = ['src/main/res', 'src/main/res/layouts/login', 'src/main/res/layouts/home', 'src/main/res/layouts/dcr', 'src/main/res/layouts/trackingdetails', 'src/main/res/layouts/document', 'src/main/res/layouts/mwr', 'src/main/res/layouts/circular', 'src/main/res/layouts/email', 'src/main/res/layouts/dcragainremake', 'src/main/res/layouts/customer']
         }
     }
     compileOptions {

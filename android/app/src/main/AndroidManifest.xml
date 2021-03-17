@@ -116,8 +116,11 @@
         <activity android:name="org.arb.Nextgen.ePharma.DcrAgainRemake.DcrSelectBaseWorkPlaceRemakeActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleInstance"/>
+        <activity android:name=".Customer.CustomerHomeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"/>
         <receiver
-            android:name="org.arb.ePharmaMobileAppCaplet.org.arb.Nextgen.ePharmaMobileAppCaplet.config.ConnectivityReceiver"
+            android:name=".config.ConnectivityReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -125,7 +128,7 @@
         </receiver>
 
         <service
-            android:name="org.arb.ePharmaMobileAppCaplet.org.arb.Nextgen.ePharmaMobileAppCaplet.config.RSSPullService"
+            android:name=".config.RSSPullService"
             android:exported="false"
             android:launchMode="singleTop"/>
 

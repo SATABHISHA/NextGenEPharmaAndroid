@@ -157,6 +157,26 @@ public class SqliteDb {
         return count;
     }
 //--added on 2nd feb, code ends
+
+    //-----added on 17th march count of masterdata, so thate we can delete previous data to avoid redundancy, code starts
+    public int countMasterData(SQLiteDatabase db){
+        int count = 0;
+        Cursor c = db.rawQuery("SELECT * FROM TB_CUSTOMER", null);
+        c.moveToFirst();
+        if(c!=null){
+            while (!c.isAfterLast()){
+                count = count + 1;
+                c.moveToNext();
+            }
+        }
+        return count;
+    }
+
+    public void deleteMasterData(SQLiteDatabase db){
+        String d = "DELETE FROM TB_CUSTOMER";
+        db.execSQL(d);
+    }
+    //-----added on 17th march count of masterdata, so thate we can delete previous data to avoid redundancy, code ends
     public String fetchDraftDCR(int column_index, String msr_id, String dcr_id, String dcr_no, String dcr_date, String cal_year_id, SQLiteDatabase db){
         String check_draft_yn = "";
         Cursor c = db.rawQuery("SELECT * FROM DCR where msr_id = '"+msr_id+"' AND dcr_id = '"+dcr_id+"' AND dcr_no = '"+dcr_no+"' AND dcr_date = '"+dcr_date+"' AND cal_year_id = '"+cal_year_id+"' AND draft_yn = 'Y' ", null);
