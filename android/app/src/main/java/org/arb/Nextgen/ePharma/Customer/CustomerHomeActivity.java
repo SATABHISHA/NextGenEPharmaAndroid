@@ -13,7 +13,7 @@ import org.arb.Nextgen.ePharma.R;
 
 public class CustomerHomeActivity extends AppCompatActivity implements View.OnClickListener {
     RelativeLayout rlDoctor, rlChemist, rlStockists;
-    public static String customer_type;
+    public static String customer_type, type;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class CustomerHomeActivity extends AppCompatActivity implements View.OnCl
             case R.id.rlDoctor:
 
                 customer_type = "Doctors";
+                type = "doctors";
                 Intent intent_customers_doctor = new Intent(CustomerHomeActivity.this, CustomerDctrStockistChemistListActivity.class);
                 intent_customers_doctor.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent_customers_doctor);
@@ -41,6 +42,7 @@ public class CustomerHomeActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.rlChemist:
                 customer_type = "Chemists";
+                type = "chemists";
                 Intent intent_customers_chemists = new Intent(CustomerHomeActivity.this, CustomerDctrStockistChemistListActivity.class);
                 intent_customers_chemists.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent_customers_chemists);
@@ -48,6 +50,7 @@ public class CustomerHomeActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.rlStockists:
                 customer_type = "Stockists";
+                type = "stockists";
                 Intent intent_customers_stockists = new Intent(CustomerHomeActivity.this, CustomerDctrStockistChemistListActivity.class);
                 intent_customers_stockists.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent_customers_stockists);

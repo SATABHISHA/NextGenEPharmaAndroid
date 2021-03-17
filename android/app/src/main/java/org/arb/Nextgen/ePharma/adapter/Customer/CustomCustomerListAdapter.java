@@ -67,6 +67,13 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
     public void onBindViewHolder(CustomCustomerListAdapter.MyViewHolder holder, int position) {
         holder.itemView.setTag(customerListModelArrayList.get(position));
         holder.tv_name.setText(customerListModelArrayList.get(position).getName());
+        /*holder.img_btn_geotag.setBackgroundResource(R.drawable.tagpin);
+        holder.img_btn_product.setBackgroundResource(R.drawable.product);*/
+        if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 0){
+            holder.img_btn_geotag.setBackgroundResource(R.drawable.tagpindisabled);
+        }else if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 1){
+            holder.img_btn_geotag.setBackgroundResource(R.drawable.tagpin);
+        }
         if(customerListModelArrayList.get(position).getType().contentEquals("doctors")){
             holder.tv_speciality.setVisibility(View.VISIBLE);
             holder.tv_customer_class.setVisibility(View.VISIBLE);

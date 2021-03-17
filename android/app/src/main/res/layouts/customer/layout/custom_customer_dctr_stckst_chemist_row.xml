@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_work_place"
                 android:layout_marginLeft="17dp"
-                android:paddingBottom="7dp"
+                android:paddingBottom="8dp"
                 android:visibility="visible"
                 android:textSize="13sp"
                 android:textColor="#9C27B0"
@@ -110,7 +110,7 @@
                 android:text="Gold"/>
             <LinearLayout
                 android:id="@+id/ll_border"
-                android:layout_below="@id/tv_customer_class"
+                android:layout_below="@id/rl_items"
                 android:layout_width="match_parent"
                 android:layout_marginTop="0dp"
                 android:layout_height="1dp"
@@ -150,20 +150,19 @@
                  android:layout_centerVertical="true"
                  android:layout_alignParentRight="true"/> -->
             <LinearLayout
-                android:id="@+id/rl_day_count"
+                android:id="@+id/rl_items"
                 android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:layout_above="@id/ll_border"
+                android:layout_height="100dp"
                 android:background="@drawable/gray_border"
                 android:orientation="vertical"
                 android:layout_alignParentRight="true">
                 <ImageView
                     android:id="@+id/img_btn_geotag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:src="@drawable/tagpin"/>
+                    android:background="@drawable/tagpin"/>
                 <LinearLayout
                     android:id="@+id/ll_border1"
                     android:layout_width="match_parent"
@@ -173,11 +172,11 @@
                     android:background="#dcdcdc"/>
                 <ImageView
                     android:id="@+id/img_btn_product"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:src="@drawable/product"/>
+                    android:background="@drawable/product"/>
             </LinearLayout>
             <!-- </RelativeLayout> -->
         </RelativeLayout>
