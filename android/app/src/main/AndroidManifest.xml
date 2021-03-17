@@ -119,6 +119,8 @@
         <activity android:name=".Customer.CustomerHomeActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleInstance"/>
+        <activity android:name=".Customer.CustomerDctrStockistChemistListActivity"
+            android:launchMode="singleInstance"/>
         <receiver
             android:name=".config.ConnectivityReceiver"
             android:enabled="true">

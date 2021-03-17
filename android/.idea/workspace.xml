@@ -36,9 +36,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8f4bd7c8-670d-4fb4-9846-d45ce9df08fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerHomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Home/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Home/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/custom_dctr_stckst_chemist_row.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/custom_dctr_stckst_chemist_row.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/DctrStockistChemistListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_dctr_stckst_chemist_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_dctr_stckst_chemist_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,11 +244,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1615984000823">
+    <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1615984623052">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
     <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.805@0.25.1440.805" timestamp="1612166490801" />
-    <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.807@0.25.1440.807" timestamp="1615984000823" />
+    <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.807@0.25.1440.807" timestamp="1615984623052" />
     <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.809@0.25.1440.809" timestamp="1615967857312" />
     <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.813@0.25.1440.813" timestamp="1612206054421" />
     <state x="96" y="355" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1615465445867">
