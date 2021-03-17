@@ -93,6 +93,7 @@
                     <RelativeLayout
                         android:id="@+id/rlDcr"
                         android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
                         android:layout_height="90dp"
                         android:visibility="gone"
                         android:background="@drawable/homeborder">

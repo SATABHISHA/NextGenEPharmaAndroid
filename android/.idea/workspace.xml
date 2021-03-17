@@ -35,7 +35,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f4bd7c8-670d-4fb4-9846-d45ce9df08fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/activity_epharma_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/activity_epharma_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout/activity_epharma_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout/activity_epharma_home.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
