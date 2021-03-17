@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff">
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--<ImageView
+                android:id="@+id/img_circular"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circularnew"
+                android:layout_centerVertical="true"/> -->
+            <!-- <RelativeLayout
+                 android:id="@+id/rl_odr_no"
+                 android:layout_width="67dp"
+                 android:layout_height="67dp"
+                 android:background="#c2c2c2"
+                 android:gravity="center">
+                 <TextView
+                     android:id="@+id/tv_odr_caption"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="20sp"
+                     android:textStyle="bold"
+                     android:layout_centerHorizontal="true"
+                     android:text="ODR"/>
+                 <TextView
+                     android:id="@+id/tv_odr_request_id"
+                     android:layout_below="@id/tv_odr_caption"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_centerVertical="true"
+                     android:layout_centerHorizontal="true"
+                     android:textSize="20sp"
+                     android:textStyle="bold"
+                     android:text="1"/>
+             </RelativeLayout> -->
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="17dp"
+                android:textSize="17sp"
+                android:textColor="#616161"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Dr. Abcd"/>
+            <TextView
+                android:id="@+id/tv_speciality"
+                android:layout_below="@id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="17dp"
+                android:textSize="17sp"
+                android:textColor="#a7a7a7"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Orthopedic Surgeon"/>
+            <TextView
+                android:id="@+id/tv_work_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_speciality"
+                android:layout_marginLeft="17dp"
+                android:textSize="15sp"
+                android:textColor="#616161"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Park Street Area"/>
+            <TextView
+                android:id="@+id/tv_customer_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_work_place"
+                android:layout_marginLeft="17dp"
+                android:paddingBottom="7dp"
+                android:textSize="13sp"
+                android:textColor="#9C27B0"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:text="Gold"/>
+            <LinearLayout
+                android:id="@+id/ll_border"
+                android:layout_below="@id/tv_customer_class"
+                android:layout_width="match_parent"
+                android:layout_marginTop="0dp"
+                android:layout_height="1dp"
+                android:orientation="vertical"
+                android:background="#dcdcdc"/>
+
+
+            <!-- <TextView
+                 android:id="@+id/tv_day_date_period"
+                 android:layout_below="@id/tv_weekdate"
+                 android:layout_marginTop="2dp"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_toRightOf="@id/img_circular"
+                 android:textSize="15sp"
+                 android:textStyle="normal"
+                 android:textColor="#ACACAC"
+                 android:clickable="false"
+                 android:focusable="false"
+                 android:focusableInTouchMode="false"
+                 android:text="04-11-2019 To 09-11-2019"/> -->
+            <!--<RelativeLayout
+                android:id="@+id/rl_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                android:layout_alignParentRight="true"> -->
+
+            <!-- <ImageView
+                 android:id="@+id/img_next"
+                 android:layout_width="35dp"
+                 android:layout_height="35dp"
+
+                 android:visibility="visible"
+                 android:layout_marginRight="10dp"
+                 android:layout_centerHorizontal="true"
+                 android:layout_centerVertical="true"
+                 android:layout_alignParentRight="true"/> -->
+            <LinearLayout
+                android:id="@+id/rl_day_count"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_above="@id/ll_border"
+                android:background="@drawable/gray_border"
+                android:orientation="vertical"
+                android:layout_alignParentRight="true">
+                <ImageView
+                    android:id="@+id/img_btn_geotag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tagpin"/>
+                <LinearLayout
+                    android:id="@+id/ll_border1"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_height="1dp"
+                    android:orientation="vertical"
+                    android:background="#dcdcdc"/>
+                <ImageView
+                    android:id="@+id/img_btn_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/product"/>
+            </LinearLayout>
+            <!-- </RelativeLayout> -->
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
