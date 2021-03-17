@@ -352,4 +352,15 @@ public class SqliteDb {
         return msr1_msr2_doctor;
     }
     //----functions for mwr code ends----
+
+    public void updateMasterTbCustomer(String dctr_chemist_stockist_id,Integer geo_tagged_yn, String latitude, String longitude, String location_address, Integer synced_yn, SQLiteDatabase db){
+        ContentValues cv = new ContentValues();
+        cv.put("geo_tagged_yn", geo_tagged_yn); //These Fields should be your String values of actual column names
+        cv.put("latitude", latitude); //These Fields should be your String values of actual column names
+        cv.put("longitude", longitude); //These Fields should be your String values of actual column names
+        cv.put("location_address", location_address); //These Fields should be your String values of actual column names
+        cv.put("synced_yn", synced_yn); //These Fields should be your String values of actual column names
+
+        db.update("TB_CUSTOMER", cv, "dctr_chemist_stockist_id = ? " , new String[] {dctr_chemist_stockist_id});
+    }
 }

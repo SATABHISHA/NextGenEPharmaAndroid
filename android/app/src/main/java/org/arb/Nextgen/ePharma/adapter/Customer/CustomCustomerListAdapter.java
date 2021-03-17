@@ -5,7 +5,15 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,18 +31,28 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.arb.Nextgen.ePharma.Customer.CustomerDctrStockistChemistListActivity;
+import org.arb.Nextgen.ePharma.Data.SqliteDb;
 import org.arb.Nextgen.ePharma.Model.CustomerListModel;
 import org.arb.Nextgen.ePharma.Model.UserSingletonModel;
 import org.arb.Nextgen.ePharma.R;
+import org.arb.Nextgen.ePharma.config.Config;
+import org.arb.Nextgen.ePharma.config.ConnectivityReceiver;
+import org.arb.Nextgen.ePharma.config.Snackbar;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustomerListAdapter.MyViewHolder> {
@@ -42,11 +60,16 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
     public static ArrayList<CustomerListModel> customerListModelArrayList;
     UserSingletonModel userSingletonModel = UserSingletonModel.getInstance();
     private Context context;
+    SQLiteDatabase db;
+    SqliteDb sqliteDb = new SqliteDb();
+    int synced_yn = 0;
 //    public static String name, emp_id;
 
 
 //    public static ProgressDialog loading;
 //    public static TextView tv_download;
+
+
 
 
     public CustomCustomerListAdapter(Context ctx, ArrayList<CustomerListModel> customerListModelArrayList){
@@ -60,6 +83,7 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
         View view = inflater.inflate(R.layout.custom_customer_dctr_stckst_chemist_row, parent, false);
         CustomCustomerListAdapter.MyViewHolder holder = new CustomCustomerListAdapter.MyViewHolder(view);
         context = parent.getContext();
+
         return holder;
     }
 
@@ -122,7 +146,19 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
 
                     final int position = getAdapterPosition();
 
-                   /* AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    LayoutInflater li = LayoutInflater.from(context);
+                    final View dialog = li.inflate(R.layout.dialog_customer_list, null);
+                    final TextView tv_body = dialog.findViewById(R.id.tv_body);
+                    final TextView tv_yes = dialog.findViewById(R.id.tv_yes);
+                    final TextView tv_no = dialog.findViewById(R.id.tv_no);
+                    final LinearLayout ll_yes = dialog.findViewById(R.id.ll_yes);
+                    final LinearLayout ll_no = dialog.findViewById(R.id.ll_no);
+
+
+                    tv_body.setText("Want to set Geo Tag for "+customerListModelArrayList.get(position).getName()+ "?");
+
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context);
                     alert.setView(dialog);
                     alert.setCancelable(false);
                     //Creating an alert dialog
@@ -135,127 +171,66 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
                             alertDialog.dismiss();
                         }
                     });
+                    tv_no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            alertDialog.dismiss();
+                        }
+                    });
 
-                    ll_yes.setOnClickListener(new View.OnClickListener() {
+                    /*ll_yes.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 
+//                            getLocation();
+                            *//*Log.d("Latitude:", CustomerDctrStockistChemistListActivity.latitude);
+                            Log.d("Longitude:",CustomerDctrStockistChemistListActivity.longitude);
+                            Log.d("Address:",CustomerDctrStockistChemistListActivity.locationAddress);*//*
+                            Log.d("testPressed:","test");
+                            boolean isConnected = ConnectivityReceiver.isConnected();
+                            if (isConnected == true){
+                                Log.d("status-=>","Internet Available");
+                            }else if(isConnected == false){
+                                Log.d("status-=>","No Internet");
+                            }
 
-                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                            startActivityForResult(intent, 7); //commented for temp
-                            //commented for temp
-                            intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
-                            ((Activity) context).startActivityForResult(intent, 7);
-                            Toast.makeText(context.getApplicationContext(), employeeImageSettingsModelArrayList.get(position).getEmployee_name(), Toast.LENGTH_LONG).show();
-                            alertDialog.dismiss();
+                        }
+                    });*/
 
-                            name = employeeImageSettingsModelArrayList.get(position).getEmployee_name();
-                            emp_id = employeeImageSettingsModelArrayList.get(position).getId_person();
-//                            Log.d("base64-=>",base64String);
+                    tv_yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+//                            getLocation();
+
+                            //----------creating sqlite database, code starts-------
+                            try {
+                                db = context.openOrCreateDatabase("DCRDEtails", context.MODE_PRIVATE, null);
+//            db.execSQL("CREATE TABLE IF NOT EXISTS dcrdetail(id integer PRIMARY KEY AUTOINCREMENT, dcrJsonData VARCHAR)");
+
+                                db.execSQL("CREATE TABLE IF NOT EXISTS TB_CUSTOMER(id integer PRIMARY KEY AUTOINCREMENT, dctr_chemist_stockist_id VARCHAR, ecl_no VARCHAR, name VARCHAR, work_place_id VARCHAR, work_place_name VARCHAR, speciality VARCHAR, customer_class VARCHAR, geo_tagged_yn integer, latitude VARCHAR, longitude VARCHAR, location_address VARCHAR, type VARCHAR, synced_yn integer)"); //--added on 17th march as per requirement
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            //----------creating sqlite database, code ends-------
+                            Log.d("Latitude:", CustomerDctrStockistChemistListActivity.latitude);
+                            Log.d("Longitude:",CustomerDctrStockistChemistListActivity.longitude);
+                            Log.d("Address:",CustomerDctrStockistChemistListActivity.locationAddress);
+                            Log.d("testPressed:","test");
+                            boolean isConnected = ConnectivityReceiver.isConnected();
+                            if (isConnected == true){
+                               Log.d("status-=>","Internet Available");
+
+                               save(position);
+                            }else if(isConnected == false){
+                                synced_yn = 0;
+                                sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),1,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+                                Log.d("status-=>","No Internet");
+                            }
+
 
                         }
                     });
-                    if (employeeImageSettingsModelArrayList.get(position).getAws_action().contentEquals("enroll")) {
-                        LayoutInflater li = LayoutInflater.from(context);
-                        final View dialog = li.inflate(R.layout.dialog_employee_image_alert, null);
-                        final TextView tv_title = dialog.findViewById(R.id.tv_title);
-                        final TextView tv_body = dialog.findViewById(R.id.tv_body);
-                        final TextView tv_yes = dialog.findViewById(R.id.tv_yes);
-                        final LinearLayout ll_yes = dialog.findViewById(R.id.ll_yes);
-                        final LinearLayout ll_no = dialog.findViewById(R.id.ll_no);
-
-
-                        tv_title.setText("Do you want to Enroll face image for "+employeeImageSettingsModelArrayList.get(position).getName_first()+" "+employeeImageSettingsModelArrayList.get(position).getName_last()+" ?");
-
-                        String body = "Tips for better Recognition result: \n1) Individual's face must be seen clearly and focused \n2) Individual's face must be at center of the camera's frame \n3) Avoid dark background";
-                        tv_body.setText(body);
-
-                        AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                        alert.setView(dialog);
-                        alert.setCancelable(false);
-                        //Creating an alert dialog
-                        final AlertDialog alertDialog = alert.create();
-                        alertDialog.show();
-
-                        ll_no.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                alertDialog.dismiss();
-                            }
-                        });
-
-                        ll_yes.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-
-
-                                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                            startActivityForResult(intent, 7); //commented for temp
-                                //commented for temp
-                                intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
-                                ((Activity) context).startActivityForResult(intent, 7);
-                                Toast.makeText(context.getApplicationContext(), employeeImageSettingsModelArrayList.get(position).getEmployee_name(), Toast.LENGTH_LONG).show();
-                                alertDialog.dismiss();
-
-                                name = employeeImageSettingsModelArrayList.get(position).getEmployee_name();
-                                emp_id = employeeImageSettingsModelArrayList.get(position).getId_person();
-//                            Log.d("base64-=>",base64String);
-
-                            }
-                        });
-                        tv_yes.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                            startActivityForResult(intent, 7); //commented for temp
-                                //commented for temp
-                                intent.putExtra("android.intent.extras.CAMERA_FACING", 1);
-                                ((Activity) context).startActivityForResult(intent, 7);
-                                Toast.makeText(context.getApplicationContext(), employeeImageSettingsModelArrayList.get(position).getEmployee_name(), Toast.LENGTH_LONG).show();
-                                alertDialog.dismiss();
-
-                                name = employeeImageSettingsModelArrayList.get(position).getEmployee_name();
-                                emp_id = employeeImageSettingsModelArrayList.get(position).getId_person();
-//                            Log.d("base64-=>",base64String);
-                            }
-                        });
-                    }else if(employeeImageSettingsModelArrayList.get(position).getAws_action().contentEquals("delete")){
-                        emp_id = employeeImageSettingsModelArrayList.get(position).getId_person();
-//                        DeleteImage(position);
-                        Log.d("position-=>",String.valueOf(position));
-
-                        //---custom dialog for delete, starts
-                        LayoutInflater li = LayoutInflater.from(context);
-                        final View dialog = li.inflate(R.layout.dialog_employee_delete_alert, null);
-
-                        TextView tv_ok = dialog.findViewById(R.id.tv_ok);
-                        TextView tv_cancel = dialog.findViewById(R.id.tv_cancel);
-
-
-                        AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                        alert.setView(dialog);
-                        alert.setCancelable(false);
-                        //Creating an alert dialog
-                        final AlertDialog alertDialog = alert.create();
-                        alertDialog.show();
-
-                        tv_ok.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                DeleteImage(position);
-                            }
-                        });
-
-                        tv_cancel.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                alertDialog.dismiss();
-                            }
-                        });
-
-
-                        //---custom dialog for delete, ends
-                    }*/
                 }
             });
 
@@ -263,101 +238,75 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
 
         }
 
-        /*public void DeleteImage(int position){
-            String url = Config.BaseUrl + "KioskService.asmx/DeleteFaces";
+        public void save(int position){
+            final JSONObject DocumentElementobj = new JSONObject();
+
+            final String URL = Config.BaseUrlEpharma+"epharma/msr/customer/geo-tag/set";
+            try {
+                DocumentElementobj.put("corp_id", userSingletonModel.getCorp_id());
+                DocumentElementobj.put("msr_id", Integer.parseInt(userSingletonModel.getUser_id()));
+                DocumentElementobj.put("customer_id", Integer.parseInt(customerListModelArrayList.get(position).getDctr_chemist_stockist_id()));
+                DocumentElementobj.put("latitude", Double.parseDouble(CustomerDctrStockistChemistListActivity.latitude));
+                DocumentElementobj.put("longitude", Double.parseDouble(CustomerDctrStockistChemistListActivity.longitude));
+                DocumentElementobj.put("address", CustomerDctrStockistChemistListActivity.locationAddress);
+
+                Log.d("Jsontest-=>",DocumentElementobj.toString());
+
+                JsonObjectRequest request_json = null;
+                try {
+                    request_json = new JsonObjectRequest(Request.Method.POST, URL,new JSONObject(DocumentElementobj.toString()),
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    try {
+                                        //Process os success response
+                                        JSONObject jsonObj = null;
+                                        try{
+                                            String responseData = response.toString();
+                                            String val = "";
+                                            JSONObject resobj = new JSONObject(responseData);
+                                            Log.d("getData",resobj.toString());
+
+                                            if(resobj.getString("status").contentEquals("true")){
+
+                                                synced_yn = 1;
+                                                sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),1,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+                                            }else {
+                                                synced_yn = 0;
+                                                sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),1,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+                                            }
 
 
-            final ProgressDialog loading = ProgressDialog.show(((Activity) context), "Loading", "Please wait while loading data", false, false);
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            JSONObject jsonObj = null;
-                            try{
-                                jsonObj = XML.toJSONObject(response);
-                                String responseData = jsonObj.toString();
-                                String val = "";
-                                JSONObject resobj = new JSONObject(responseData);
-                                Iterator<?> keys = resobj.keys();
-                                while(keys.hasNext() ) {
-                                    String key = (String)keys.next();
-                                    if ( resobj.get(key) instanceof JSONObject ) {
-                                        JSONObject xx = new JSONObject(resobj.get(key).toString());
-                                        val = xx.getString("content");
-                                        Log.d("res1-=>",xx.getString("content"));
-                                        JSONObject jsonObject = new JSONObject(val);
-                                   *//* String status = jsonObject.getString("status");
-
-                                    Log.d("statusTest",status);*//*
-
-                                        if (jsonObject.getString("Status").contentEquals("true")){
-//                                            loadData();
-                                            employeeImageSettingsAdapter.notifyDataSetChanged();
-//                                            Toast.makeText(context.getApplicationContext(),jsonObject.getString("Message"),Toast.LENGTH_LONG).show();  // commented n 18th feb
-                                            Log.d("result-=>",jsonObject.getString("Message"));
-                                            ((Activity)context).finish();
-                                            ((Activity)context).startActivity(((Activity)context).getIntent());
-                                        }else{
-//                                            loadData();
-                                            employeeImageSettingsAdapter.notifyDataSetChanged();
-                                            Log.d("result-=>",jsonObject.getString("Message"));
-                                            Toast.makeText(context.getApplicationContext(),jsonObject.getString("Message"),Toast.LENGTH_LONG).show();
+                                        }catch (JSONException e){
+                                            //                            loading.dismiss();
+                                            e.printStackTrace();
+                                            synced_yn = 0;
                                         }
 
-                                        loading.dismiss();
-//                                    Toast.makeText(getApplicationContext(),xx.getString("content"),Toast.LENGTH_LONG).show();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
                                 }
-
-                            }catch (Exception e){
-                                e.printStackTrace();
-                                loading.dismiss();
-                            }
-
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            VolleyLog.e("Error: ", error.getMessage());
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    loading.dismiss();
-
-
-                    String message = "Could not connect server";
-               *//* int color = Color.parseColor("#ffffff");
-                Snackbar snackbar = Snackbar.make(findViewById(R.id.relativeLayout), message, 4000);
-
-                View sbView = snackbar.getView();
-                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
-                textView.setTextColor(color);
-                snackbar.show();*//*
-
-               *//* View v = findViewById(R.id.relativeLayout);
-                new org.arb.gst.config.Snackbar(message,v);
-                Log.d("Volley Error-=>",error.toString());*//*
-                    Toast.makeText(context.getApplicationContext(),message,Toast.LENGTH_LONG).show();
-                    Log.d("Volley Error-=>",error.toString());
-
-                    loading.dismiss();
-
-
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("CorpId", "arb-kol-dev");
-                    params.put("EmployeeId", emp_id);
-                    params.put("FaceId", employeeImageSettingsModelArrayList.get(position).getAws_face_id());
-                *//*params.put("UserId", String.valueOf(RecognizeHomeActivity.PersonId));
-                params.put("deviceType", "1");
-                params.put("EmpType", "MAIN");*//*
 
-                    return params;
-                }
-            };
+// add the request object to the queue to be executed
+                RequestQueue requestQueue = Volley.newRequestQueue(context);
+                requestQueue.add(request_json);
 
-            RequestQueue requestQueue = Volley.newRequestQueue(context);
-            requestQueue.add(stringRequest);
-        }*/
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
+
+
 }

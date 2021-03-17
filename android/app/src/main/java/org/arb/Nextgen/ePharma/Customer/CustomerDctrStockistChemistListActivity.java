@@ -1,10 +1,18 @@
 package org.arb.Nextgen.ePharma.Customer;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +25,10 @@ import org.arb.Nextgen.ePharma.R;
 import org.arb.Nextgen.ePharma.adapter.Customer.CustomCustomerListAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
-public class CustomerDctrStockistChemistListActivity extends AppCompatActivity {
+public class CustomerDctrStockistChemistListActivity extends AppCompatActivity implements LocationListener{
     TextView tv_bar_item_title, tv_bar_item_count;
     RecyclerView recycler_view;
     LinearLayout ll_recycler;
@@ -26,6 +36,9 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity {
     ArrayList<CustomerListModel> customerListModelArrayList = new ArrayList<>();
     SQLiteDatabase db;
     SqliteDb sqliteDb = new SqliteDb();
+
+    public static String latitude = "", longitude = "", locationAddress="";
+    LocationManager locationManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +57,9 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity {
         recycler_view.setLayoutManager(new LinearLayoutManager(this));
         //==========Recycler code initializing and setting layoutManager ends======
 
+        getLocation();
         LoadData(CustomerHomeActivity.type);
+
     }
 
     public void LoadData(String type){
@@ -94,4 +109,62 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity {
         }
 
     }
+
+    //-------------location code starts(added by Satabhisha)--------
+    void getLocation() {
+        try {
+            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+            //---minTime(in millisec), minDistance(in meters)
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+//        locationText.setText("Latitude: " + location.getLatitude() + "\n Longitude: " + location.getLongitude());
+//        Toast.makeText(getApplicationContext(), "Latitude:" + location.getLatitude() + "\n" + "Longitude: " + location.getLongitude(), Toast.LENGTH_SHORT).show();
+
+        try {
+            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+//            locationText.setText(locationText.getText() + "\n"+addresses.get(0).getAddressLine(0)+", "+ addresses.get(0).getAddressLine(1)+", "+addresses.get(0).getAddressLine(2));
+//            Toast.makeText(getApplicationContext(), addresses.get(0).getAddressLine(0) + addresses.get(0).getAddressLine(1) + addresses.get(0).getAddressLine(2), Toast.LENGTH_LONG).show();
+//            String locationAddress = addresses.get(0).getAddressLine(0) + addresses.get(0).getAddressLine(1) + addresses.get(0).getAddressLine(2);
+
+
+            latitude = String.valueOf(location.getLatitude());
+//            latitude = "";
+            longitude = String.valueOf(location.getLongitude());
+//            longitude = "";
+            locationAddress = addresses.get(0).getAddressLine(0) + addresses.get(0).getAddressLine(1) + addresses.get(0).getAddressLine(2);
+            Log.d("Location-=>",locationAddress);
+            /*Log.d("Latitude:", latitude);
+            Log.d("Longitude:",longitude);
+            Log.d("Address:",locationAddress);*/
+//            final Context context = this;
+
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Toast.makeText(this, "Please Enable GPS", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+    //-------------location code ends(added by Satabhisha)--------
+
 }
