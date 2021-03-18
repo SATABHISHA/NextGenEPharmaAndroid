@@ -6,6 +6,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +33,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -40,6 +43,7 @@ import org.arb.Nextgen.ePharma.Home.HomeActivity;
 import org.arb.Nextgen.ePharma.Model.TrackingDetailsMapModel;
 import org.arb.Nextgen.ePharma.Model.TrackingDetailsMsrNameModel;
 import org.arb.Nextgen.ePharma.Model.TrackingDetailsStateSpinnerModel;
+import org.arb.Nextgen.ePharma.Model.UserSingletonModel;
 import org.arb.Nextgen.ePharma.R;
 import org.arb.Nextgen.ePharma.config.Config;
 import org.json.JSONArray;
@@ -49,6 +53,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -61,6 +66,7 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
     ImageButton imgbtn_arrrow, imgBtnCalender;
     EditText edt_date_select;
     final Calendar myCalendar = Calendar.getInstance();
+    UserSingletonModel userSingletonModel = UserSingletonModel.getInstance();
 //    Spinner  spinner_msr_name;
     MaterialSpinner spinner_state, spinner_msr_name;
     int msr_id = 0;
@@ -69,6 +75,9 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
     ArrayList<TrackingDetailsStateSpinnerModel> trackingDetailsStateSpinnerModelArrayList = new ArrayList<>();
     ArrayList<TrackingDetailsMsrNameModel> trackingDetailsMsrNameModelArrayList = new ArrayList<>();
     ArrayList<TrackingDetailsMapModel> trackingDetailsMapModelArrayList = new ArrayList<>();
+    ArrayList<String> arrayList_customer_id = new ArrayList<>();
+    String[] customer_id_values;
+    SQLiteDatabase db;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,7 +247,7 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
             //----code for polyline, starts----
             PolylineOptions polylineOptions = new PolylineOptions();
             polylineOptions.color(Color.RED);
-            polylineOptions.width(3);
+            polylineOptions.width(5);
             //----code for polyline, ends----
 
             for (int i = 0; i < trackingDetailsMapModelArrayList.size(); i++) {
@@ -257,6 +266,38 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
 
             }
             mMap.addPolyline(polylineOptions);
+
+            //------map plotting for customers, code starts-----
+
+        //------map plotting for customers, code ends-----
+        for(int i=0 ; i<arrayList_customer_id.size() ; i++){
+            Log.d("radiuscustomertest-=>", arrayList_customer_id.get(i));
+            //----------creating sqlite database, code starts-------
+            try {
+                db = openOrCreateDatabase("DCRDEtails", MODE_PRIVATE, null);
+//            db.execSQL("CREATE TABLE IF NOT EXISTS dcrdetail(id integer PRIMARY KEY AUTOINCREMENT, dcrJsonData VARCHAR)");
+
+                db.execSQL("CREATE TABLE IF NOT EXISTS TB_CUSTOMER(id integer PRIMARY KEY AUTOINCREMENT, dctr_chemist_stockist_id VARCHAR, ecl_no VARCHAR, name VARCHAR, work_place_id VARCHAR, work_place_name VARCHAR, speciality VARCHAR, customer_class VARCHAR, geo_tagged_yn integer, latitude VARCHAR, longitude VARCHAR, location_address VARCHAR, type VARCHAR, synced_yn integer)"); //--added on 17th march as per requirement
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Cursor c = db.rawQuery("SELECT * FROM TB_CUSTOMER where dctr_chemist_stockist_id = '"+arrayList_customer_id.get(i)+"'", null);
+            c.moveToFirst();
+            if (c != null) {
+                while (!c.isAfterLast()) {
+                    Log.d("routetestlat-=>",c.getString(9));
+                    LatLng currentLatLong = new LatLng(Double.parseDouble(c.getString(9)), Double.parseDouble(c.getString(10)));
+                    mMap.addMarker(new MarkerOptions().position(currentLatLong)).setIcon(BitmapDescriptorFactory.fromResource(R.drawable.customerspin));
+
+                    c.moveToNext();
+                }
+            }
+        }
+        //----------creating sqlite database, code ends-------
+
+
+
 
         // Add a marker in Sydney and move the camera
        /* LatLng sydney = new LatLng(22, 88);
@@ -279,7 +320,8 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
     public void loadLocationData(String date){
 //        String url = "http://220.225.40.151:9029/api/msrtracking/?msr_id=105&log_date="+date;
 //        String url = "http://220.225.40.151:9029/api/msrtracking/"+msr_id+"/"+date;
-        String url = Config.BaseUrlEpharma+"msrtracking/"+msr_id+"/"+date;
+//        String url = Config.BaseUrlEpharma+"msrtracking/"+msr_id+"/"+date; //--commented on 18th march
+        String url = Config.BaseUrlEpharma+"epharma/MSRTracking/"+userSingletonModel.getCorp_id()+"/"+msr_id+"/"+date;
         final ProgressDialog loading = ProgressDialog.show(TrackingDetailsActivity.this, "Loading", "Please wait while loading map", false, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -323,6 +365,7 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
     public void getLocationData(String request){
 //        final ProgressDialog loading = ProgressDialog.show(LoginActivity.this, "Authenticating", "Please wait while logging", false, false);
         JSONObject jsonObject = null;
+        String customer_ids_in_radius = "";
         try {
             jsonObject = new JSONObject(request);
             JSONObject jsonObject1 = jsonObject.getJSONObject("response");
@@ -339,9 +382,20 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
                     trackingDetailsMapModel.setAddress(jsonObject2.get("address").toString());
                     trackingDetailsMapModel.setLatitude(jsonObject2.get("latitude").toString());
                     trackingDetailsMapModel.setLongitude(jsonObject2.get("longitude").toString());
+                    customer_ids_in_radius = customer_ids_in_radius + jsonObject2.getString("customer_ids_in_radius").toString() + ",";
                     trackingDetailsMapModelArrayList.add(trackingDetailsMapModel);
 
                 }
+                customer_ids_in_radius = customer_ids_in_radius.substring(0, customer_ids_in_radius.length() - 1);
+//                Log.d("radiuscustomertest-=>",customer_ids_in_radius);
+                 customer_id_values = customer_ids_in_radius.split(",");
+                if(!arrayList_customer_id.isEmpty()){
+                    arrayList_customer_id.clear();
+                }
+                for(int i=0;i<customer_id_values.length;i++){
+                    arrayList_customer_id.add(customer_id_values[i]);
+                }
+//                arrayList_customer_id = new ArrayList(Arrays.asList(values));
 
                 onMapReady(mMap);
 
