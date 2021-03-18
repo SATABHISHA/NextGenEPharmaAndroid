@@ -75,7 +75,7 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
            /* if(sqliteDb.countMasterData(db) > 0){
                 sqliteDb.deleteMasterData(db);
             }*/
-            tv_bar_item_count.setText(String.valueOf(sqliteDb.countMasterData(db)));
+            tv_bar_item_count.setText(String.valueOf(sqliteDb.countMasterData1(db, type)));
         } catch (Exception e) {
             e.printStackTrace();
         }

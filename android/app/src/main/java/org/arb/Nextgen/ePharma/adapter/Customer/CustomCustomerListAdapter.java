@@ -155,7 +155,11 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
                     final LinearLayout ll_no = dialog.findViewById(R.id.ll_no);
 
 
-                    tv_body.setText("Want to set Geo Tag for "+customerListModelArrayList.get(position).getName()+ "?");
+                    if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 0) {
+                        tv_body.setText("Want to set Geo Tag for " + customerListModelArrayList.get(position).getName() + "?");
+                    }else if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 1){
+                        tv_body.setText("Are you sure you want to delete Geo Tag for " + customerListModelArrayList.get(position).getName() + "?");
+                    }
 
 
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
@@ -221,12 +225,25 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
                             if (isConnected == true){
                                Log.d("status-=>","Internet Available");
 
-                               save(position);
+                                if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 0) {
+                                    save(position);
+                                }else if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 1) {
+                                    remove(position);
+                                }
                             }else if(isConnected == false){
                                 synced_yn = 0;
-                                sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),1,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+                                if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 0) {
+                                    sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(), 1, CustomerDctrStockistChemistListActivity.latitude, CustomerDctrStockistChemistListActivity.longitude, CustomerDctrStockistChemistListActivity.locationAddress, synced_yn, db);
+                                }else if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 1) {
+                                    sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(), 0, CustomerDctrStockistChemistListActivity.latitude, CustomerDctrStockistChemistListActivity.longitude, CustomerDctrStockistChemistListActivity.locationAddress, synced_yn, db);
+                                }
                                 Log.d("status-=>","No Internet");
                             }
+                            alertDialog.dismiss();
+                            Intent intent1=new Intent(context,CustomerDctrStockistChemistListActivity.class);
+
+                            context.startActivity(intent1);
+                            ((Activity)context).finish();
 
 
                         }
@@ -237,6 +254,8 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
 
 
         }
+
+
 
         public void save(int position){
             final JSONObject DocumentElementobj = new JSONObject();
@@ -271,9 +290,77 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
 
                                                 synced_yn = 1;
                                                 sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),1,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+
                                             }else {
                                                 synced_yn = 0;
                                                 sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),1,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+                                            }
+
+
+                                        }catch (JSONException e){
+                                            //                            loading.dismiss();
+                                            e.printStackTrace();
+                                            synced_yn = 0;
+                                        }
+
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            VolleyLog.e("Error: ", error.getMessage());
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+// add the request object to the queue to be executed
+                RequestQueue requestQueue = Volley.newRequestQueue(context);
+                requestQueue.add(request_json);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        public void remove(int position){
+            final JSONObject DocumentElementobj = new JSONObject();
+
+            final String URL = Config.BaseUrlEpharma+"epharma/msr/customer/geo-tag/remove";
+            try {
+                DocumentElementobj.put("corp_id", userSingletonModel.getCorp_id());
+                DocumentElementobj.put("msr_id", Integer.parseInt(userSingletonModel.getUser_id()));
+                DocumentElementobj.put("customer_id", Integer.parseInt(customerListModelArrayList.get(position).getDctr_chemist_stockist_id()));
+
+
+                Log.d("Jsontest-=>",DocumentElementobj.toString());
+
+                JsonObjectRequest request_json = null;
+                try {
+                    request_json = new JsonObjectRequest(Request.Method.POST, URL,new JSONObject(DocumentElementobj.toString()),
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    try {
+                                        //Process os success response
+                                        JSONObject jsonObj = null;
+                                        try{
+                                            String responseData = response.toString();
+                                            String val = "";
+                                            JSONObject resobj = new JSONObject(responseData);
+                                            Log.d("getData",resobj.toString());
+
+                                            if(resobj.getString("status").contentEquals("true")){
+
+                                                synced_yn = 1;
+                                                sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),0,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
+                                            }else {
+                                                synced_yn = 0;
+                                                sqliteDb.updateMasterTbCustomer(customerListModelArrayList.get(position).getDctr_chemist_stockist_id(),0,CustomerDctrStockistChemistListActivity.latitude,CustomerDctrStockistChemistListActivity.longitude,CustomerDctrStockistChemistListActivity.locationAddress,synced_yn,db);
                                             }
 
 

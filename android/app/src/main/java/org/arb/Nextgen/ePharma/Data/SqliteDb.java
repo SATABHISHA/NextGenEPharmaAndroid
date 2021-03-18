@@ -171,6 +171,18 @@ public class SqliteDb {
         }
         return count;
     }
+    public int countMasterData1(SQLiteDatabase db, String type){
+        int count = 0;
+        Cursor c = db.rawQuery("SELECT * FROM TB_CUSTOMER where type = '"+type+"'", null);
+        c.moveToFirst();
+        if(c!=null){
+            while (!c.isAfterLast()){
+                count = count + 1;
+                c.moveToNext();
+            }
+        }
+        return count;
+    }
 
     public void deleteMasterData(SQLiteDatabase db){
         String d = "DELETE FROM TB_CUSTOMER";
