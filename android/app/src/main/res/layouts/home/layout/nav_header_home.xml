@@ -27,7 +27,7 @@
         android:layout_height="70dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/supervisor" />
+        app:srcCompat="@drawable/employeemale" />
 
     </RelativeLayout>
    <!-- <TextView
