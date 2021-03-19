@@ -446,7 +446,7 @@ public void test(){
         //----code to get device_id and upload to api code ends(added on 17th June)......
 //        String url = "http://220.225.40.151:9029/api/login/?user_id="+edtUsername.getText().toString()+"&password="+edtPassword.getText().toString();
 //        String url = "http://220.225.40.151:9029/api/login/"+edtUsername.getText().toString()+"/"+edtPassword.getText().toString();
-        String url = Config.BaseUrlEpharma+"/epharma/login/"+edtCorpId.getText().toString()+"/"+edtUsername.getText().toString()+"/"+edtPassword.getText().toString()+"/"+android_id;
+        String url = Config.BaseUrlEpharma+"epharma/login/"+edtCorpId.getText().toString()+"/"+edtUsername.getText().toString()+"/"+edtPassword.getText().toString()+"/"+android_id;
         Log.d("urlLogin-=>",url);
         final ProgressDialog loading = ProgressDialog.show(LoginActivity.this, "Authenticating", "Please wait while logging", false, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

@@ -16,7 +16,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:background="#355175">
+                android:background="#F7519B">
                 <TextView
                     android:id="@+id/tv_accountcode"
                     android:layout_width="250dp"

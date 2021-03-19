@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#47BE90"
+            android:background="#F7519B"
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="85"
                     android:gravity="center"
-                    android:background="#47BE90">
+                    android:background="#F7519B">
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="25dp"
@@ -133,7 +133,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="85"
-                    android:background="#47BE90">
+                    android:background="#F7519B">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -188,7 +188,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="85"
-                    android:background="#47BE90">
+                    android:background="#F7519B">
 
                     <ImageButton
                         android:id="@+id/imgBtnCalender"

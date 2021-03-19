@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="#4DC7A1"
+            android:background="#F7519B"
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -296,7 +296,7 @@
                 android:id="@+id/btn_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#4DC7A1"
+                android:background="#F7519B"
                 android:layout_weight=".5"
                 android:textColor="#ffffff"
                 android:textSize="17sp"
@@ -311,7 +311,7 @@
                 android:id="@+id/btn_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#4DC7A1"
+                android:background="#F7519B"
                 android:layout_weight=".54"
                 android:textColor="#ffffff"
                 android:textSize="17sp"

@@ -8,7 +8,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4DC7A1"
+            android:background="#F7519B"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <!--<androidx.appcompat.widget.Toolbar

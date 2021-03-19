@@ -39,20 +39,56 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Data/SqliteDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Data/SqliteDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/adapter/Customer/CustomCustomerListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/adapter/Customer/CustomCustomerListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Login/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/download.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/download.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/share.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/share.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/circular/layout/circular_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/circular/layout/circular_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/circular/layout/circular_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/circular/layout/circular_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_customer_dctr_stckst_chemist_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_customer_dctr_stckst_chemist_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_customer_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_customer_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/dialog_customer_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/dialog_customer_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout/activity_dcr_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout/activity_dcr_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_base_work_place_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_base_work_place_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_details_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_details_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_details_worked_with_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_details_worked_with_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_select_chemist_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_select_chemist_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_select_doctor_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_select_doctor_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_select_stockist_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_select_stockist_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_type_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_type_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_view_chemist_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_view_chemist_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_view_doctor_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_view_doctor_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_view_stockist_remake.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_dcr_view_stockist_remake.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_select_doctor_remake1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcragainremake/layout/activity_select_doctor_remake1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/document/layout/activity_documentlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/document/layout/activity_documentlist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/document/layout/dialog_upload_documentlist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/document/layout/dialog_upload_documentlist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/email/layout/email_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/email/layout/email_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/email/layout/email_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/email/layout/email_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/activity_epharma_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/activity_epharma_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/dialog_change_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large/dialog_change_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout/activity_epharma_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout/activity_epharma_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/home/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/login/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/login/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-large/activity_mwr_msr1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-large/activity_mwr_msr1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-large/activity_mwr_msr2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-large/activity_mwr_msr2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-sw600dp/activity_mwr_msr1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-sw600dp/activity_mwr_msr1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-sw600dp/activity_mwr_msr2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout-sw600dp/activity_mwr_msr2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_msr1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_msr1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_msr2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_msr2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_other_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_other_details.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_week_date.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/mwr/layout/activity_mwr_week_date.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/trackingdetails/layout/activity_tracking_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/trackingdetails/layout/activity_tracking_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -132,8 +168,12 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout-large" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.arb.ePharmaMobileApp.Document" />
@@ -141,12 +181,8 @@
       <recent name="org.arb.ePharmaMobileApp.Model" />
       <recent name="org.arb.ePharmaMobileApp.DCR" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout-large" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
   </component>
   <component name="RunManager">
@@ -261,44 +297,44 @@
       <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state x="96" y="355" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.25.1440.805@0.25.1440.805" timestamp="1615465445867" />
-    <state x="224" y="148" width="986" height="551" key="AVDManager" timestamp="1616094215513">
+    <state x="224" y="148" width="986" height="551" key="AVDManager" timestamp="1616130118691">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
     <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.804@0.25.1440.804" timestamp="1611816018634" />
     <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.805@0.25.1440.805" timestamp="1616093668768" />
-    <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.807@0.25.1440.807" timestamp="1616094215513" />
+    <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.807@0.25.1440.807" timestamp="1616130118691" />
     <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.809@0.25.1440.809" timestamp="1612337720422" />
     <state x="224" y="149" width="986" height="554" key="AVDManager/0.25.1440.813@0.25.1440.813" timestamp="1612180731764" />
     <state x="210" y="186" key="AndroidCreateResourceDirectoryDialog" timestamp="1615989830366">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
     <state x="210" y="186" key="AndroidCreateResourceDirectoryDialog/0.25.1440.807@0.25.1440.807" timestamp="1615989830366" />
-    <state width="1246" height="217" key="GridCell.Tab.0.bottom" timestamp="1616099046187">
+    <state width="1246" height="217" key="GridCell.Tab.0.bottom" timestamp="1616139666324">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
-    <state width="1246" height="141" key="GridCell.Tab.0.bottom/0.25.1440.805@0.25.1440.805" timestamp="1616093668597" />
-    <state width="1246" height="217" key="GridCell.Tab.0.bottom/0.25.1440.807@0.25.1440.807" timestamp="1616099046187" />
+    <state width="1246" height="217" key="GridCell.Tab.0.bottom/0.25.1440.805@0.25.1440.805" timestamp="1616102850603" />
+    <state width="1246" height="217" key="GridCell.Tab.0.bottom/0.25.1440.807@0.25.1440.807" timestamp="1616139666324" />
     <state width="1176" height="217" key="GridCell.Tab.0.bottom/0.25.1440.809@0.25.1440.809" timestamp="1616014456118" />
     <state width="1144" height="245" key="GridCell.Tab.0.bottom/0.25.1440.813@0.25.1440.813" timestamp="1612203072955" />
-    <state width="1246" height="217" key="GridCell.Tab.0.center" timestamp="1616099046187">
+    <state width="1246" height="217" key="GridCell.Tab.0.center" timestamp="1616139666324">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
-    <state width="1246" height="141" key="GridCell.Tab.0.center/0.25.1440.805@0.25.1440.805" timestamp="1616093668596" />
-    <state width="1246" height="217" key="GridCell.Tab.0.center/0.25.1440.807@0.25.1440.807" timestamp="1616099046187" />
+    <state width="1246" height="217" key="GridCell.Tab.0.center/0.25.1440.805@0.25.1440.805" timestamp="1616102850602" />
+    <state width="1246" height="217" key="GridCell.Tab.0.center/0.25.1440.807@0.25.1440.807" timestamp="1616139666324" />
     <state width="1176" height="217" key="GridCell.Tab.0.center/0.25.1440.809@0.25.1440.809" timestamp="1616014456117" />
     <state width="1144" height="245" key="GridCell.Tab.0.center/0.25.1440.813@0.25.1440.813" timestamp="1612203072953" />
-    <state width="1246" height="217" key="GridCell.Tab.0.left" timestamp="1616099046186">
+    <state width="1246" height="217" key="GridCell.Tab.0.left" timestamp="1616139666323">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
-    <state width="1246" height="141" key="GridCell.Tab.0.left/0.25.1440.805@0.25.1440.805" timestamp="1616093668595" />
-    <state width="1246" height="217" key="GridCell.Tab.0.left/0.25.1440.807@0.25.1440.807" timestamp="1616099046186" />
+    <state width="1246" height="217" key="GridCell.Tab.0.left/0.25.1440.805@0.25.1440.805" timestamp="1616102850601" />
+    <state width="1246" height="217" key="GridCell.Tab.0.left/0.25.1440.807@0.25.1440.807" timestamp="1616139666323" />
     <state width="1176" height="217" key="GridCell.Tab.0.left/0.25.1440.809@0.25.1440.809" timestamp="1616014456117" />
     <state width="1144" height="245" key="GridCell.Tab.0.left/0.25.1440.813@0.25.1440.813" timestamp="1612203072953" />
-    <state width="1246" height="217" key="GridCell.Tab.0.right" timestamp="1616099046187">
+    <state width="1246" height="217" key="GridCell.Tab.0.right" timestamp="1616139666324">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
-    <state width="1246" height="141" key="GridCell.Tab.0.right/0.25.1440.805@0.25.1440.805" timestamp="1616093668596" />
-    <state width="1246" height="217" key="GridCell.Tab.0.right/0.25.1440.807@0.25.1440.807" timestamp="1616099046187" />
+    <state width="1246" height="217" key="GridCell.Tab.0.right/0.25.1440.805@0.25.1440.805" timestamp="1616102850602" />
+    <state width="1246" height="217" key="GridCell.Tab.0.right/0.25.1440.807@0.25.1440.807" timestamp="1616139666324" />
     <state width="1176" height="217" key="GridCell.Tab.0.right/0.25.1440.809@0.25.1440.809" timestamp="1616014456118" />
     <state width="1144" height="245" key="GridCell.Tab.0.right/0.25.1440.813@0.25.1440.813" timestamp="1612203072954" />
     <state width="1144" height="339" key="GridCell.Tab.1.bottom" timestamp="1612288357084">

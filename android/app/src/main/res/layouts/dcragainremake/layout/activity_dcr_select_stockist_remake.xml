@@ -8,7 +8,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="#4DC7A1"
+        android:background="#F7519B"
         android:theme="@style/AppTheme.AppBarOverlay">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -199,7 +199,7 @@
                 android:id="@+id/btn_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="#4DC7A1"
+                android:background="#F7519B"
                 android:textColor="#ffffff"
                 android:layout_weight="1"
                 android:textSize="17sp"
@@ -239,7 +239,7 @@
                 android:id="@+id/btn_add"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="#4DC7A1"
+                android:background="#F7519B"
                 android:textColor="#ffffff"
                 android:layout_weight="1"
                 android:textSize="17sp"

@@ -10,20 +10,18 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/cordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="match_parent">
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4DC7A1"
+            android:background="#F7519B"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#4DC7A1"
+                android:background="#F7519B"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
             <!-- android:background="?attr/colorPrimary"-->
 
@@ -55,7 +53,7 @@
                             android:layout_height="65dp"
                             android:layout_marginLeft="10dp"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/dcr"/>
+                            android:background="@drawable/customers"/>
                         <TextView
                             android:id="@+id/tvCustomer"
                             android:layout_width="wrap_content"
@@ -79,15 +77,16 @@
                             android:textColor="#9E9E9E"
                             android:text="View Doctors/Chemists/Stockists"
                             android:textSize="16dp"/>
+
                         <RelativeLayout
                             android:id="@+id/rl_customer"
-                            android:layout_width="50dp"
+                            android:layout_width="47dp"
+                            android:layout_height="34dp"
+                            android:layout_alignParentRight="true"
                             android:layout_marginTop="20dp"
+                            android:layout_marginRight="33dp"
                             android:layout_marginBottom="20dp"
-                            android:layout_marginRight="30dp"
-                            android:background="@drawable/menu_arrow"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"/>
+                            android:background="@drawable/menu_arrow" />
                     </RelativeLayout>
                     <!--newly added, 15th march -->
                     <RelativeLayout
