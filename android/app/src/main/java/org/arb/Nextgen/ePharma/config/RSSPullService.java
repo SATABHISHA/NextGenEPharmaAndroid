@@ -76,6 +76,8 @@ public class RSSPullService extends Service implements LocationListener {
 
     ArrayList<CustomerLocationDetailsSqliteModel> customerLocationDetailsSqliteModelArrayList = new ArrayList<>();
 
+    Double current_lat = 0.00, current_lon = 0.00, prev_lat = 0.00, prev_long = 0.00;
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -230,7 +232,7 @@ public class RSSPullService extends Service implements LocationListener {
     void getLocation() {
         try {
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 300000, 20, this);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 150000, 80, this);
             //---minTime(in millisec), minDistance(in meters)
         } catch (SecurityException e) {
             e.printStackTrace();
@@ -238,6 +240,7 @@ public class RSSPullService extends Service implements LocationListener {
         }
     }
 
+    int count = 0;
     @Override
     public void onLocationChanged(Location location) {
 //        locationText.setText("Latitude: " + location.getLatitude() + "\n Longitude: " + location.getLongitude());
@@ -252,7 +255,43 @@ public class RSSPullService extends Service implements LocationListener {
             final Context context = this;
 
             String locationAddress = addresses.get(0).getAddressLine(0) + addresses.get(0).getAddressLine(1) + addresses.get(0).getAddressLine(2);
-            customer_save_details_to_sqlite(location.getLatitude(),location.getLongitude(), locationAddress.replace("null","")); //--newly added 18th march
+            customer_save_details_to_sqlite(location.getLatitude(),location.getLongitude(), locationAddress.replace("null","")); //--newly added 18th march //===temporary commenting, 22nd marh
+
+            //--added on 22nd march, starts
+           /* count = count + 1;
+
+
+            current_lat = location.getLatitude();
+            current_lon = location.getLongitude();
+            Log.d("locationcount-=>", String.valueOf(count));
+            if(count == 1 || count == 0){
+                Log.d("Intial loaction saved","1st time");
+                Log.d("LatLong prev_lat", String.valueOf(prev_lat));
+                Log.d("LatLong prev_long", String.valueOf(prev_long));
+
+                Log.d("LatLong current_lat", String.valueOf(current_lat));
+                Log.d("LatLong current_lon", String.valueOf(current_lon));
+                prev_lat = location.getLatitude();
+                prev_long = location.getLongitude();
+                customer_save_details_to_sqlite(location.getLatitude(),location.getLongitude(), locationAddress.replace("null",""));
+            }else if(count>1){
+                if(latLongDistance(prev_lat, prev_long, current_lat, current_lon)>80){
+                    Log.d("distancelocation-=>", String.valueOf(latLongDistance(prev_lat, prev_long, current_lat, current_lon)));
+                    Log.d("loaction saved","more than 1st time");
+
+                    customer_save_details_to_sqlite(location.getLatitude(),location.getLongitude(), locationAddress.replace("null",""));
+                    prev_lat = current_lat;
+                    prev_long = current_lon;
+
+                    Log.d("LatLong prev_lat", String.valueOf(prev_lat));
+                    Log.d("LatLong prev_long", String.valueOf(prev_long));
+
+                    Log.d("LatLong current_lat", String.valueOf(current_lat));
+                    Log.d("LatLong current_lon", String.valueOf(current_lon));
+                }
+
+            }*/
+            //--added on 22nd march, ends
 
             /*try {
                 db = openOrCreateDatabase("LocationDetails", MODE_PRIVATE, null);

@@ -1,6 +1,7 @@
 package org.arb.Nextgen.ePharma.Home;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.app.AlertDialog;
 import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.location.LocationManager;
 import android.os.Build;
@@ -53,6 +55,8 @@ import com.google.android.play.core.tasks.OnSuccessListener;
 
 import org.arb.Nextgen.ePharma.Circular.CircularHomeActivity;
 import org.arb.Nextgen.ePharma.Customer.CustomerHomeActivity;
+import org.arb.Nextgen.ePharma.Data.SqliteDb;
+import org.arb.Nextgen.ePharma.DcrAgainRemake.DcrDetailsRemakeActivity;
 import org.arb.Nextgen.ePharma.Document.DocumentListActivity;
 import org.arb.Nextgen.ePharma.Email.EmailHomeActivity;
 import org.arb.Nextgen.ePharma.Login.LoginActivity;
@@ -66,6 +70,7 @@ import org.arb.Nextgen.ePharma.config.Snackbar;
 import org.arb.Nextgen.ePharma.DCR.DcrHome;
 import org.arb.Nextgen.ePharma.MWR.MWRHome;
 import org.arb.Nextgen.ePharma.R;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -89,6 +94,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private InstallStateUpdatedListener installStateUpdatedListener;
     //------variable for version update, code ends
 
+    SQLiteDatabase db;
+    SqliteDb sqliteDb = new SqliteDb();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -124,6 +131,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         rlEmails.setOnClickListener(this);
         rlTracking.setOnClickListener(this);
         rlCustomers.setOnClickListener(this);
+
 
 
         //============Navigation drawer and toolbar code starts=============
@@ -229,6 +237,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         inAppUpdateType = AppUpdateType.FLEXIBLE;//1
         inAppUpdate();
         //----added on 20th July for version update, ends----
+
+        //----------creating sqlite database, code starts, (added on 22nd march)-------
+        try {
+            db = openOrCreateDatabase("DCRDEtails", MODE_PRIVATE, null);
+            db.execSQL("CREATE TABLE IF NOT EXISTS dcrdetail(id integer PRIMARY KEY AUTOINCREMENT, dcrJsonData VARCHAR)");
+
+            db.execSQL("CREATE TABLE IF NOT EXISTS TB_CUSTOMER(id integer PRIMARY KEY AUTOINCREMENT, dctr_chemist_stockist_id VARCHAR, ecl_no VARCHAR, name VARCHAR, work_place_id VARCHAR, work_place_name VARCHAR, speciality VARCHAR, customer_class VARCHAR, geo_tagged_yn integer, latitude VARCHAR, longitude VARCHAR, location_address VARCHAR, type VARCHAR, synced_yn integer)"); //--added on 17th march as per requirement
+            if(sqliteDb.countMasterData(db) > 0){
+                sqliteDb.deleteMasterData(db);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //----------creating sqlite database, code ends (added on 22nd march)-------
+
+        loadDcrMasterData();
     }
 
     //-------added on 20th July code for version update, starts----
@@ -719,6 +743,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     //===============function to cherck relativeLayout visible/invisible, code starts=====
     public void checkRelativeLayoutVisibleOrInvisible(){
+        if(userSingletonModel.getMenu_list().contains("|customers|")){
+            rlCustomers.setVisibility(View.VISIBLE);
+        }
         if(userSingletonModel.getMenu_list().contains("|dcr|")){
             rlDcr.setVisibility(View.VISIBLE);
         }if(userSingletonModel.getMenu_list().contains("|mwr|")){
@@ -1043,7 +1070,108 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
     //=============Internet checking code ends(added 22nd Nov)=============
 
+    //=============function for DCR Details from api and insert data into sqlite database, code starts...(added on 22nd march)=============
+    public void loadDcrMasterData(){
+//        String url = Config.BaseUrlEpharma + "msr/dcr-master-data/" + userSingletonModel.getUser_id() + "/7" ;
+        String url = Config.BaseUrlEpharma + "epharma/MSR/DCR-Master-Data/" + userSingletonModel.getCorp_id() +"/"+userSingletonModel.getUser_id() + "/" + userSingletonModel.getCalendar_id() ;
 
+        Log.d("dcrurl-=>",url);
+        final ProgressDialog loading = ProgressDialog.show(HomeActivity.this, "Loading", "Please wait...", true, false);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new
+                Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        getResponseData(response);
+                        loading.dismiss();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loading.dismiss();
+                error.printStackTrace();
+            }
+        });
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+    public void getResponseData(String response){
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            Log.d("jsonData-=>",jsonObject.toString());
+            ContentValues values = new ContentValues();
+            values.put("dcrJsonData", jsonObject.toString());
+            if ((db.insert("dcrdetail", null, values)) != -1) {
+//                Toast.makeText(getApplicationContext(), "Inserted...", Toast.LENGTH_LONG).show();
+                Log.d("Test DCRDAta", "Data inserted");
+//                fetchDcrData(); //---calling function to load data from sqlite in spinner
+            } else {
+                Toast.makeText(getApplicationContext(),"Error...",Toast.LENGTH_LONG).show();
+                Log.d("Test DCRData", "Data not inserted");
+            }
 
+            JSONArray jsonArrayDoctor = jsonObject.getJSONArray("doctors");
+            for(int i=0; i<jsonArrayDoctor.length(); i++){
+                JSONObject jsonObject1 = jsonArrayDoctor.getJSONObject(i);
+                setContentValues_SaveData(jsonObject1,"doctors");
+            }
+
+            JSONArray jsonArrayChemist = jsonObject.getJSONArray("chemists");
+            for(int i=0; i<jsonArrayChemist.length(); i++){
+                JSONObject jsonObject1 = jsonArrayChemist.getJSONObject(i);
+                setContentValues_SaveData(jsonObject1,"chemists");
+            }
+
+            JSONArray jsonArrayStockist = jsonObject.getJSONArray("stockists");
+            for(int i=0; i<jsonArrayStockist.length(); i++){
+                JSONObject jsonObject1 = jsonArrayStockist.getJSONObject(i);
+                setContentValues_SaveData(jsonObject1,"stockists");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    //=============function for DCR Details from api and insert data into sqlite database, code ends...(added on 22nd march)===============
+
+    //---function to save the data in sqlitedatabse as masterdata, code starts(added on 22nd march)
+    public void setContentValues_SaveData(JSONObject jsonObject1, String type){
+        ContentValues contentValues = new ContentValues();
+        try {
+            contentValues.put("dctr_chemist_stockist_id",jsonObject1.getString("id"));
+            contentValues.put("ecl_no",jsonObject1.getString("ecl_no"));
+            contentValues.put("name",jsonObject1.getString("name"));
+            contentValues.put("work_place_id",jsonObject1.getString("work_place_id"));
+            contentValues.put("work_place_name",jsonObject1.getString("work_place_name"));
+            if(type.contentEquals("doctors")) {
+                contentValues.put("speciality", jsonObject1.getString("speciality"));
+                contentValues.put("customer_class",jsonObject1.getString("customer_class"));
+            }else{
+                contentValues.put("speciality", "NA");
+                contentValues.put("customer_class","NA");
+            }
+
+            contentValues.put("geo_tagged_yn",jsonObject1.getInt("geo_tagged_yn"));
+            contentValues.put("latitude",jsonObject1.getString("latitude"));
+            contentValues.put("longitude",jsonObject1.getString("longitude"));
+            contentValues.put("location_address",jsonObject1.getString("location_address"));
+            contentValues.put("type",type);
+//                contentValues.put("synced_yn",jsonObject1.getInt("synced_yn"));
+            contentValues.put("synced_yn",1);
+
+            if ((db.insert("TB_CUSTOMER", null, contentValues)) != -1) {
+//                Toast.makeText(getApplicationContext(), "Inserted...", Toast.LENGTH_LONG).show();
+                Log.d("dctr DCRDAta", "Data inserted");
+//                fetchDcrData(); //---calling function to load data from sqlite in spinner
+            } else {
+                Toast.makeText(getApplicationContext(),"Error...",Toast.LENGTH_LONG).show();
+                Log.d("Test DCRData", "Data not inserted");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+    //---function to save the data in sqlitedatabse as masterdata, code ends(added on 22nd march)
 
 }

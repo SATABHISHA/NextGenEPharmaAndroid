@@ -157,7 +157,8 @@ public class DcrSelectStockistRemakeActivity extends AppCompatActivity implement
 
 
             //----------for manager's section, code starts-----
-            JSONArray jsonArray1 = jsonObject.getJSONArray("work_place_stockist");
+//            JSONArray jsonArray1 = jsonObject.getJSONArray("work_place_stockist");
+            JSONArray jsonArray1 = jsonObject.getJSONArray("work_place"); //--changed on 22nd march
             for(int i=0;i<jsonArray1.length();i++){
                 JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
                 DcrDctrChemistStockistWorkPlaceModel dcrDctrChemistStockistWorkPlaceModel = new DcrDctrChemistStockistWorkPlaceModel();
@@ -203,6 +204,7 @@ public class DcrSelectStockistRemakeActivity extends AppCompatActivity implement
 
 //        String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/stockist/7";
         String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/stockist/" + userSingletonModel.getCalendar_id();
+        Log.d("urlStockist-=>",url);
         final ProgressDialog loading = ProgressDialog.show(this, "Loading", "Please wait...", true, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new
                 Response.Listener<String>() {

@@ -127,7 +127,8 @@ public class DcrSelectDoctorRemake extends AppCompatActivity implements View.OnC
 
 
             //----------for manager's section, code starts-----
-            JSONArray jsonArray1 = jsonObject.getJSONArray("work_place_doctor");
+//           //No value for work_place_doctor...22nd march
+            JSONArray jsonArray1 = jsonObject.getJSONArray("work_place");
             for(int i=0;i<jsonArray1.length();i++){
                 JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
                 DcrDctrChemistStockistWorkPlaceModel dcrDctrChemistStockistWorkPlaceModel = new DcrDctrChemistStockistWorkPlaceModel();
@@ -173,6 +174,7 @@ public class DcrSelectDoctorRemake extends AppCompatActivity implements View.OnC
 
 //            String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/doctor/7";
         String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/doctor/" + userSingletonModel.getCalendar_id();
+        Log.d("DoctorUrl-=>",url);
         final ProgressDialog loading = ProgressDialog.show(DcrSelectDoctorRemake.this, "Loading", "Please wait...", true, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new
                 Response.Listener<String>() {

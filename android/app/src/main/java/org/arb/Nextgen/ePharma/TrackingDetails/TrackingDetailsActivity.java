@@ -382,19 +382,19 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
                     trackingDetailsMapModel.setAddress(jsonObject2.get("address").toString());
                     trackingDetailsMapModel.setLatitude(jsonObject2.get("latitude").toString());
                     trackingDetailsMapModel.setLongitude(jsonObject2.get("longitude").toString());
-                    customer_ids_in_radius = customer_ids_in_radius + jsonObject2.getString("customer_ids_in_radius").toString() + ",";
+//                    customer_ids_in_radius = customer_ids_in_radius + jsonObject2.getString("customer_ids_in_radius").toString() + ",";
                     trackingDetailsMapModelArrayList.add(trackingDetailsMapModel);
 
                 }
-                customer_ids_in_radius = customer_ids_in_radius.substring(0, customer_ids_in_radius.length() - 1);
+//                customer_ids_in_radius = customer_ids_in_radius.substring(0, customer_ids_in_radius.length() - 1);
 //                Log.d("radiuscustomertest-=>",customer_ids_in_radius);
-                 customer_id_values = customer_ids_in_radius.split(",");
+                /* customer_id_values = customer_ids_in_radius.split(",");
                 if(!arrayList_customer_id.isEmpty()){
                     arrayList_customer_id.clear();
                 }
                 for(int i=0;i<customer_id_values.length;i++){
                     arrayList_customer_id.add(customer_id_values[i]);
-                }
+                }*///--commented on 22nd march
 //                arrayList_customer_id = new ArrayList(Arrays.asList(values));
 
                 onMapReady(mMap);
@@ -498,7 +498,9 @@ public class TrackingDetailsActivity extends FragmentActivity implements View.On
     //==========volley and spinner code to fetch msr_name, code starts============
     public void loadMsrNamesData(String state_name){
         state_name = state_name.replaceAll(" ","%20");
-        String url = Config.BaseUrlEpharma + "msr/list/" + state_name;
+//        String url = Config.BaseUrlEpharma + "msr/list/"+state_name;
+        String url = Config.BaseUrlEpharma + "epharma/MSR/List/"+userSingletonModel.getCorp_id()+"/"+state_name;
+        Log.d("msrnames-=>",url);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
