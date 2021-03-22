@@ -1,8 +1,12 @@
 package org.arb.Nextgen.ePharma.Customer;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -16,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +28,7 @@ import org.arb.Nextgen.ePharma.Data.SqliteDb;
 import org.arb.Nextgen.ePharma.Model.CustomerListModel;
 import org.arb.Nextgen.ePharma.R;
 import org.arb.Nextgen.ePharma.adapter.Customer.CustomCustomerListAdapter;
+import org.arb.Nextgen.ePharma.config.ImageUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +42,8 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
     ArrayList<CustomerListModel> customerListModelArrayList = new ArrayList<>();
     SQLiteDatabase db;
     SqliteDb sqliteDb = new SqliteDb();
+    public static final int RequestPermissionCode = 1;
+    public static String base64String;
 
     public static String latitude = "", longitude = "", locationAddress="";
     LocationManager locationManager;
@@ -166,5 +174,43 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
 
     }
     //-------------location code ends(added by Satabhisha)--------
+
+    //========Camera code starts=======
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 7 && resultCode == RESULT_OK) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            base64String = ImageUtil.convert(bitmap);
+//            Log.d("base64-=>",base64String);
+//            Log.d("name-=>",EmployeeImageSettingsAdapter.name);
+
+//            recognize(base64String);
+//            Log.d("base64-=>",base64String);
+//            EnrollImage(base64String);
+        }
+    }
+    public void EnableRuntimePermission(){
+        if (ActivityCompat.shouldShowRequestPermissionRationale(CustomerDctrStockistChemistListActivity.this,
+                Manifest.permission.CAMERA)) {
+//            Toast.makeText(getApplicationContext(),"CAMERA permission allows us to Access CAMERA app",     Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(CustomerDctrStockistChemistListActivity.this,new String[]{
+                    Manifest.permission.CAMERA}, RequestPermissionCode);
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] result) {
+        switch (requestCode) {
+            case RequestPermissionCode:
+                if (result.length > 0 && result[0] == PackageManager.PERMISSION_GRANTED) {
+//                    Toast.makeText(EmployeeImageSettingsActivity.this, "Permission Granted, Now your application can access CAMERA.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(CustomerDctrStockistChemistListActivity.this, "Permission Canceled, Now your application cannot access CAMERA.", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+    //========Camera code ends=======
 
 }

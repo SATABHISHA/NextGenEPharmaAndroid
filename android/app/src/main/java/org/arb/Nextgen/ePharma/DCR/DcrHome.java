@@ -444,7 +444,7 @@ public class DcrHome extends AppCompatActivity {
         }
         Log.d("calendar Start-=>",startDateCalendar.toString());
 //        String url = "http://220.225.40.151:9029/api/calendar/"+userSingletonModel.getUser_id()+"/"+startDateForApi+"/"+endDateForApi+"/"+userSingletonModel.getCalendar_id();
-        String url = Config.BaseUrlEpharma+"calendar/"+userSingletonModel.getUser_id()+"/"+startDateForApi+"/"+endDateForApi+"/"+userSingletonModel.getCalendar_id();
+        String url = Config.BaseUrlEpharma+"epharma/calendar/"+userSingletonModel.getCorp_id()+"/"+userSingletonModel.getUser_id()+"/"+startDateForApi+"/"+endDateForApi+"/"+userSingletonModel.getCalendar_id();
         final ProgressDialog loading = ProgressDialog.show(this, "Loading", "Please wait...", true, false);
 
         Log.d("url",url);
@@ -634,7 +634,7 @@ public class DcrHome extends AppCompatActivity {
         if (dcr_id.contentEquals("-1")) {
 
         } else {
-            String url = Config.BaseUrlEpharma + "dcr/" + dcr_id + "/" + msr_id + "/" + selectedDate + "/" + userSingletonModel.getCalendar_id();
+            String url = Config.BaseUrlEpharma + "epharma/dcr/"+userSingletonModel.getCorp_id()+"/" + dcr_id + "/" + msr_id + "/" + selectedDate + "/" + userSingletonModel.getCalendar_id();
             Log.d("url testing-=>", url);
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
