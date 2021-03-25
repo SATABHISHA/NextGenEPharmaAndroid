@@ -632,7 +632,7 @@ public class DcrHome extends AppCompatActivity {
         final String selectedDateForSql = selectedDate;
         final String msrIdForSql = msr_id;
         if (dcr_id.contentEquals("-1")) {
-
+           loading.dismiss();
         } else {
             String url = Config.BaseUrlEpharma + "epharma/dcr/"+userSingletonModel.getCorp_id()+"/" + dcr_id + "/" + msr_id + "/" + selectedDate + "/" + userSingletonModel.getCalendar_id();
             Log.d("url testing-=>", url);

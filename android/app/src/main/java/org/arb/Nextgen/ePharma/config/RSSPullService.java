@@ -119,7 +119,7 @@ public class RSSPullService extends Service implements LocationListener {
                     try {
                         Thread.sleep(5000);  //1000ms = 1 sec
 //                        upload_data_delete_sqlite_data_test();
-                        new UploadData().execute();
+                        new UploadData().execute(); //--commented on 25th march
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
