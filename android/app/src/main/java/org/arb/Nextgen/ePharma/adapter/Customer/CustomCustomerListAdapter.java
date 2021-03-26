@@ -70,7 +70,12 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
 //    public static TextView tv_download;
 
 
-
+//---added on 26th march for searching, code starts---
+    public void updateList(ArrayList<CustomerListModel> customerListModelArrayList){
+        this.customerListModelArrayList = customerListModelArrayList;
+        notifyDataSetChanged();
+    }
+    //---added on 26th march for searching, code ends---
 
     public CustomCustomerListAdapter(Context ctx, ArrayList<CustomerListModel> customerListModelArrayList){
 

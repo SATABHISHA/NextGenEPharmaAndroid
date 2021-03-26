@@ -45,31 +45,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_ganfra_material_spinner_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_ganfra_material_spinner_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_karumi_dexter_5_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_karumi_dexter_5_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_rengwuxian_materialedittext_library_2_0_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_rengwuxian_materialedittext_library_2_0_3_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_roomorama_caldroid_3_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_roomorama_caldroid_3_0_1_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_weiwangcn_betterspinner_library_material_1_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_weiwangcn_betterspinner_library_material_1_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__pub_devrel_easypermissions_0_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__pub_devrel_easypermissions_0_2_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DCR/DcrHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DCR/DcrHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DCR/DcrSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DCR/DcrSummary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DcrAgainRemake/DcrSelectChemistRemakeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DcrAgainRemake/DcrSelectChemistRemakeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DcrAgainRemake/DcrSelectDoctorRemake.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DcrAgainRemake/DcrSelectDoctorRemake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DcrAgainRemake/DcrSelectStockistRemakeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/DcrAgainRemake/DcrSelectStockistRemakeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout/activity_dcr_summary.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout/activity_dcr_summary.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/adapter/Customer/CustomCustomerListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/adapter/Customer/CustomCustomerListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/config/RSSPullService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/config/RSSPullService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_customer_dctr_stckst_chemist_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layouts/customer/layout/activity_customer_dctr_stckst_chemist_details.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[5.4_FWVGA_API_28]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[7GT7N18831000897]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -137,7 +124,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="memory.settings.postsync.last.time.stamp" value="1615967735743" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
@@ -149,12 +136,8 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout-large" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.arb.Nextgen.ePharma.config" />
@@ -163,8 +146,12 @@
       <recent name="org.arb.ePharmaMobileApp.Model" />
       <recent name="org.arb.ePharmaMobileApp.DCR" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout-large" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/home/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layouts/dcr/layout-large" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
     </key>
   </component>
   <component name="RunManager">
@@ -268,9 +255,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser" timestamp="1616078453271">
-      <screen x="0" y="25" width="1440" height="807" />
+    <state x="296" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1616759012504">
+      <screen x="0" y="23" width="1024" height="745" />
     </state>
+    <state x="296" y="99" key="#com.intellij.ide.util.MemberChooser/0.23.1024.745@0.23.1024.745" timestamp="1616759012504" />
     <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.805@0.25.1440.805" timestamp="1616064778291" />
     <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.807@0.25.1440.807" timestamp="1616078453271" />
     <state x="416" y="107" key="#com.intellij.ide.util.MemberChooser/0.25.1440.809@0.25.1440.809" timestamp="1615967857312" />
@@ -292,34 +280,34 @@
       <screen x="0" y="25" width="1440" height="807" />
     </state>
     <state x="210" y="186" key="AndroidCreateResourceDirectoryDialog/0.25.1440.807@0.25.1440.807" timestamp="1615989830366" />
-    <state width="647" height="234" key="GridCell.Tab.0.bottom" timestamp="1616746049982">
+    <state width="922" height="95" key="GridCell.Tab.0.bottom" timestamp="1616752678896">
       <screen x="0" y="23" width="1024" height="745" />
     </state>
-    <state width="647" height="234" key="GridCell.Tab.0.bottom/0.23.1024.745@0.23.1024.745" timestamp="1616746049982" />
+    <state width="922" height="95" key="GridCell.Tab.0.bottom/0.23.1024.745@0.23.1024.745" timestamp="1616752678896" />
     <state width="1082" height="217" key="GridCell.Tab.0.bottom/0.25.1440.805@0.25.1440.805" timestamp="1616405196875" />
     <state width="1082" height="217" key="GridCell.Tab.0.bottom/0.25.1440.807@0.25.1440.807" timestamp="1616673274624" />
     <state width="1176" height="217" key="GridCell.Tab.0.bottom/0.25.1440.809@0.25.1440.809" timestamp="1616014456118" />
     <state width="1144" height="245" key="GridCell.Tab.0.bottom/0.25.1440.813@0.25.1440.813" timestamp="1612203072955" />
-    <state width="647" height="234" key="GridCell.Tab.0.center" timestamp="1616746049981">
+    <state width="922" height="95" key="GridCell.Tab.0.center" timestamp="1616752678895">
       <screen x="0" y="23" width="1024" height="745" />
     </state>
-    <state width="647" height="234" key="GridCell.Tab.0.center/0.23.1024.745@0.23.1024.745" timestamp="1616746049981" />
+    <state width="922" height="95" key="GridCell.Tab.0.center/0.23.1024.745@0.23.1024.745" timestamp="1616752678895" />
     <state width="1082" height="217" key="GridCell.Tab.0.center/0.25.1440.805@0.25.1440.805" timestamp="1616405196873" />
     <state width="1082" height="217" key="GridCell.Tab.0.center/0.25.1440.807@0.25.1440.807" timestamp="1616673274623" />
     <state width="1176" height="217" key="GridCell.Tab.0.center/0.25.1440.809@0.25.1440.809" timestamp="1616014456117" />
     <state width="1144" height="245" key="GridCell.Tab.0.center/0.25.1440.813@0.25.1440.813" timestamp="1612203072953" />
-    <state width="647" height="234" key="GridCell.Tab.0.left" timestamp="1616746049981">
+    <state width="922" height="95" key="GridCell.Tab.0.left" timestamp="1616752678895">
       <screen x="0" y="23" width="1024" height="745" />
     </state>
-    <state width="647" height="234" key="GridCell.Tab.0.left/0.23.1024.745@0.23.1024.745" timestamp="1616746049981" />
+    <state width="922" height="95" key="GridCell.Tab.0.left/0.23.1024.745@0.23.1024.745" timestamp="1616752678895" />
     <state width="1082" height="217" key="GridCell.Tab.0.left/0.25.1440.805@0.25.1440.805" timestamp="1616405196872" />
     <state width="1082" height="217" key="GridCell.Tab.0.left/0.25.1440.807@0.25.1440.807" timestamp="1616673274621" />
     <state width="1176" height="217" key="GridCell.Tab.0.left/0.25.1440.809@0.25.1440.809" timestamp="1616014456117" />
     <state width="1144" height="245" key="GridCell.Tab.0.left/0.25.1440.813@0.25.1440.813" timestamp="1612203072953" />
-    <state width="647" height="234" key="GridCell.Tab.0.right" timestamp="1616746049982">
+    <state width="922" height="95" key="GridCell.Tab.0.right" timestamp="1616752678895">
       <screen x="0" y="23" width="1024" height="745" />
     </state>
-    <state width="647" height="234" key="GridCell.Tab.0.right/0.23.1024.745@0.23.1024.745" timestamp="1616746049982" />
+    <state width="922" height="95" key="GridCell.Tab.0.right/0.23.1024.745@0.23.1024.745" timestamp="1616752678895" />
     <state width="1082" height="217" key="GridCell.Tab.0.right/0.25.1440.805@0.25.1440.805" timestamp="1616405196874" />
     <state width="1082" height="217" key="GridCell.Tab.0.right/0.25.1440.807@0.25.1440.807" timestamp="1616673274623" />
     <state width="1176" height="217" key="GridCell.Tab.0.right/0.25.1440.809@0.25.1440.809" timestamp="1616014456118" />

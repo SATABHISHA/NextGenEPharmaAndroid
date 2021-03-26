@@ -13,7 +13,12 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class CustomerDctrStockistChemistListActivity extends AppCompatActivity implements LocationListener{
+public class CustomerDctrStockistChemistListActivity extends AppCompatActivity implements LocationListener, View.OnClickListener {
     TextView tv_bar_item_title, tv_bar_item_count;
     RecyclerView recycler_view;
     LinearLayout ll_recycler;
@@ -47,12 +52,18 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
 
     public static String latitude = "", longitude = "", locationAddress="";
     LocationManager locationManager;
+    EditText edtxt_search;
+
+    ImageView img_search;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_dctr_stckst_chemist_details);
 
         ll_recycler = findViewById(R.id.ll_recycler);
+        edtxt_search = findViewById(R.id.edtxt_search);
+        img_search = findViewById(R.id.img_search);
         tv_bar_item_title = findViewById(R.id.tv_bar_item_title);
         tv_bar_item_title.setText(CustomerHomeActivity.customer_type);
 
@@ -65,10 +76,61 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
         recycler_view.setLayoutManager(new LinearLayoutManager(this));
         //==========Recycler code initializing and setting layoutManager ends======
 
+        //---newly added on 26th march, code starts
+        edtxt_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
+
+        //---newly added on 26th march, code ends
+
         getLocation();
         LoadData(CustomerHomeActivity.type);
 
+
+//        img_search.setOnClickListener(this);
+
+
     }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.img_search:
+                filter(edtxt_search.getText().toString());
+                break;
+        }
+    }
+
+    //----newly added for search on 26th march code starts------
+    void filter(String text){
+        ArrayList<CustomerListModel> temp = new ArrayList();
+        for(CustomerListModel s : customerListModelArrayList){
+            //or use .equal(text) with you want equal match
+            //use .toLowerCase() for better matches
+            if(s.getName().toLowerCase().contains(text.toLowerCase())){
+                temp.add(s);
+
+            }
+        }
+        //update recyclerview
+        customCustomerListAdapter.updateList(temp);
+    }
+    //----newly added for search on 26th march code ends------
 
     public void LoadData(String type){
         if(!customerListModelArrayList.isEmpty()){
@@ -211,6 +273,8 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
                 break;
         }
     }
+
+
     //========Camera code ends=======
 
 }
