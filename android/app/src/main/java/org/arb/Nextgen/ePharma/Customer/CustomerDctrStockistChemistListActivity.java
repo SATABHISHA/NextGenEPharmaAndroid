@@ -80,12 +80,12 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
         edtxt_search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+//                filter(charSequence.toString());
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                filter(charSequence.toString());
+                filter(charSequence.toString());
             }
 
             @Override

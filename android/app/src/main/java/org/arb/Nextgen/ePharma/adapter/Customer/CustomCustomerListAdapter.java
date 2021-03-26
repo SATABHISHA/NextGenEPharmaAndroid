@@ -15,6 +15,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Spannable;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +65,7 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
     SQLiteDatabase db;
     SqliteDb sqliteDb = new SqliteDb();
     int synced_yn = 0;
+//    String searchString=""; //added on 26th march
 //    public static String name, emp_id;
 
 
@@ -73,6 +76,7 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
 //---added on 26th march for searching, code starts---
     public void updateList(ArrayList<CustomerListModel> customerListModelArrayList){
         this.customerListModelArrayList = customerListModelArrayList;
+//        this.searchString=searchString; //---for text color
         notifyDataSetChanged();
     }
     //---added on 26th march for searching, code ends---
@@ -98,6 +102,7 @@ public class CustomCustomerListAdapter extends RecyclerView.Adapter<CustomCustom
         holder.tv_name.setText(customerListModelArrayList.get(position).getName());
         /*holder.img_btn_geotag.setBackgroundResource(R.drawable.tagpin);
         holder.img_btn_product.setBackgroundResource(R.drawable.product);*/
+
         if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 0){
             holder.img_btn_geotag.setBackgroundResource(R.drawable.tagpindisabled);
         }else if(customerListModelArrayList.get(position).getGeo_tagged_yn() == 1){
