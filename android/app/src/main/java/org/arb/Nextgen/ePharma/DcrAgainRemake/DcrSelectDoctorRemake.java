@@ -173,7 +173,8 @@ public class DcrSelectDoctorRemake extends AppCompatActivity implements View.OnC
         }
 
 //            String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/doctor/7";
-        String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/doctor/" + userSingletonModel.getCalendar_id();
+//        String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/doctor/" + userSingletonModel.getCalendar_id();
+        String url = Config.BaseUrlEpharma + "epharma/MSR/Customer-List/" + userSingletonModel.getCorp_id()+"/" +userSingletonModel.getUser_id() + "/" + hqId + "/doctor/" + userSingletonModel.getCalendar_id();
         Log.d("DoctorUrl-=>",url);
         final ProgressDialog loading = ProgressDialog.show(DcrSelectDoctorRemake.this, "Loading", "Please wait...", true, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new

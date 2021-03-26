@@ -203,7 +203,7 @@ public class DcrSelectStockistRemakeActivity extends AppCompatActivity implement
         }
 
 //        String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/stockist/7";
-        String url = Config.BaseUrlEpharma + "MSR/Customer-List/" + userSingletonModel.getUser_id() + "/" + hqId + "/stockist/" + userSingletonModel.getCalendar_id();
+        String url = Config.BaseUrlEpharma + "epharma/MSR/Customer-List/" +userSingletonModel.getCorp_id()+"/"+ userSingletonModel.getUser_id() + "/" + hqId + "/stockist/" + userSingletonModel.getCalendar_id();
         Log.d("urlStockist-=>",url);
         final ProgressDialog loading = ProgressDialog.show(this, "Loading", "Please wait...", true, false);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new

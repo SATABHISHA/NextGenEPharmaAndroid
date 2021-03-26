@@ -634,7 +634,8 @@ public class DcrHome extends AppCompatActivity {
         if (dcr_id.contentEquals("-1")) {
            loading.dismiss();
         } else {
-            String url = Config.BaseUrlEpharma + "epharma/dcr/"+userSingletonModel.getCorp_id()+"/" + dcr_id + "/" + msr_id + "/" + selectedDate + "/" + userSingletonModel.getCalendar_id();
+//            String url = Config.BaseUrlEpharma + "epharma/dcr/"+userSingletonModel.getCorp_id()+"/" + dcr_id + "/" + msr_id + "/" + selectedDate + "/" + userSingletonModel.getCalendar_id();
+            String url = Config.BaseUrlEpharma + "epharma/DCR/"+userSingletonModel.getCorp_id()+"/" + dcr_id + "/" + msr_id + "/" + selectedDate + "/" + userSingletonModel.getCalendar_id(); //changed on 26th march
             Log.d("url testing-=>", url);
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override

@@ -15,6 +15,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c629d4169bfff26709d25658b0dd9e92/jetified-caldroid-3.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c629d4169bfff26709d25658b0dd9e92/jetified-caldroid-3.0.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c629d4169bfff26709d25658b0dd9e92/jetified-caldroid-3.0.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4b8ac58675c7b89e356bb661870ffb0/jetified-caldroid-3.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4b8ac58675c7b89e356bb661870ffb0/jetified-caldroid-3.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f4b8ac58675c7b89e356bb661870ffb0/jetified-caldroid-3.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.roomorama/caldroid/3.0.1/5f9f0ba858fba964f364c5d0312a68db4ae1ee73/caldroid-3.0.1-javadoc.jar!/" />

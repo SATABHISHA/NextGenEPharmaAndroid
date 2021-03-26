@@ -965,6 +965,7 @@ public class DcrSummary extends AppCompatActivity implements View.OnClickListene
         JSONArray reqWorkedWith = new JSONArray();
 
         try {
+            DocumentElementobj.put("corp_id", userSingletonModel.getCorp_id());
             DocumentElementobj.put("dcr_id", Integer.parseInt(userSingletonModel.getDcr_id_for_dcr_summary()));
             DocumentElementobj.put("dcr_no", userSingletonModel.getDcr_no_for_dcr_summary());
             DocumentElementobj.put("dcr_date", userSingletonModel.getSelected_date_calendar_forapi_format());
@@ -1120,7 +1121,9 @@ public class DcrSummary extends AppCompatActivity implements View.OnClickListene
             }
         }
         Log.d("JsonObjForSaveData-=-=>",DocumentElementobj.toString());
-        final String URL = Config.BaseUrlEpharma+"dcr/save";
+//        final String URL = Config.BaseUrlEpharma+"dcr/save";
+        //commented temporary on 26th
+        final String URL = Config.BaseUrlEpharma+"epharma/DCR/Save";
 // Post params to be sent to the server
 
         JsonObjectRequest request_json = null;
@@ -1142,10 +1145,10 @@ public class DcrSummary extends AppCompatActivity implements View.OnClickListene
 
                                     if(resobj.getString("status").contentEquals("1")){
                                         try {
-                                            /*Toast.makeText(getApplicationContext(),resobj.getString("message"),Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(),resobj.getString("message"),Toast.LENGTH_LONG).show();
                                             Intent intent = new Intent(DcrSummary.this, HomeActivity.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            startActivity(intent);*/
+                                            startActivity(intent);
                                             //---------Alert dialog code starts(added on 21st nov)--------
                                             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DcrSummary.this);
                                             //--added on 2nd feb,code starts---
@@ -1243,7 +1246,7 @@ public class DcrSummary extends AppCompatActivity implements View.OnClickListene
 
 // add the request object to the queue to be executed
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request_json);
+        requestQueue.add(request_json);  //commented temporary on 26th
 
     }
 
