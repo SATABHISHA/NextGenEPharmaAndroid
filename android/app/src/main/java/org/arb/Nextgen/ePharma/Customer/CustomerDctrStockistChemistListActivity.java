@@ -85,12 +85,14 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                filter(charSequence.toString());
+                if(!edtxt_search.getText().toString().isEmpty()) {
+                    filter(charSequence.toString());
+                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                filter(editable.toString());
+//                filter(editable.toString());
             }
         });
 
