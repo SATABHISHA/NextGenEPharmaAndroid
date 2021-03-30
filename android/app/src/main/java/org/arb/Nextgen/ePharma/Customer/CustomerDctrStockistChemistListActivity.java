@@ -85,9 +85,10 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(!edtxt_search.getText().toString().isEmpty()) {
+              /*  if(!edtxt_search.getText().toString().isEmpty()) {
                     filter(charSequence.toString());
-                }
+                }*/
+                LoadData(CustomerHomeActivity.type,edtxt_search.getText().toString());
             }
 
             @Override
@@ -100,7 +101,7 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
         //---newly added on 26th march, code ends
 
         getLocation();
-        LoadData(CustomerHomeActivity.type);
+        LoadData(CustomerHomeActivity.type,"A");
 
 
 //        img_search.setOnClickListener(this);
@@ -134,7 +135,7 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
     }
     //----newly added for search on 26th march code ends------
 
-    public void LoadData(String type){
+    public void LoadData(String type, String filter){
         if(!customerListModelArrayList.isEmpty()){
             customerListModelArrayList.clear();
         }
@@ -153,7 +154,7 @@ public class CustomerDctrStockistChemistListActivity extends AppCompatActivity i
         }
         //----------creating sqlite database, code ends-------
 
-        Cursor c = db.rawQuery("SELECT * FROM TB_CUSTOMER where type = '"+type+"' ", null);
+        Cursor c = db.rawQuery("SELECT * FROM TB_CUSTOMER where type = '"+type+"' AND name LIKE '%"+ filter + "%'", null);
 
 //            TextView v=(TextView)findViewById(R.id.v);
         c.moveToFirst();

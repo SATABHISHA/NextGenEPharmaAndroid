@@ -37,7 +37,6 @@
     <list default="true" id="8f4bd7c8-670d-4fb4-9846-d45ce9df08fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/arb/Nextgen/ePharma/Customer/CustomerDctrStockistChemistListActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,13 +254,13 @@
       <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state x="96" y="355" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.25.1440.805@0.25.1440.805" timestamp="1615465445867" />
-    <state x="224" y="148" width="986" height="551" key="AVDManager" timestamp="1616875244964">
+    <state x="224" y="148" width="986" height="551" key="AVDManager" timestamp="1617082052273">
       <screen x="0" y="25" width="1440" height="807" />
     </state>
     <state x="159" y="137" width="702" height="509" key="AVDManager/0.23.1024.745@0.23.1024.745" timestamp="1616741270784" />
     <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.804@0.25.1440.804" timestamp="1611816018634" />
     <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.805@0.25.1440.805" timestamp="1616093668768" />
-    <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.807@0.25.1440.807" timestamp="1616875244964" />
+    <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.807@0.25.1440.807" timestamp="1617082052273" />
     <state x="224" y="148" width="986" height="551" key="AVDManager/0.25.1440.809@0.25.1440.809" timestamp="1612337720422" />
     <state x="224" y="149" width="986" height="554" key="AVDManager/0.25.1440.813@0.25.1440.813" timestamp="1612180731764" />
     <state x="210" y="186" key="AndroidCreateResourceDirectoryDialog" timestamp="1615989830366">
